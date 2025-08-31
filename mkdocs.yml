@@ -1,5 +1,5 @@
-site_name: EE4218 Labs
-site_url: https://nus-ee4218.github.io/labs
+site_name: CEG5203 Assignments
+site_url: https://nus-ceg5203.github.io/assignments
 theme:
   name: material
   features:

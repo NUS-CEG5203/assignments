@@ -2,6 +2,8 @@
 
 This page describes how to use Vivado to create a hardware platform using IP Integrator, and to synthesize the hardware into a bitstream. The bitstream is used to configure the FPGA to become the hardware platform that we have created. The bitstream and other hardware info are exported as a .xsa file.
 
+Note: There are slight differences in GUI and options based on the version. The spirit of what is being done remains the same.
+
 Open Vivado.
 
 File>Project>New

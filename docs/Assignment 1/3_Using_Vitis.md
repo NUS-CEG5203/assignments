@@ -1,14 +1,14 @@
 # Software development using Vitis Classic
 
-This page details the steps involved in creating a software application using Vitis, an Eclipse-based IDE, to run on the hardware platform created using Vivado. You should be using a Vitis version that matches your Vivado version.
+This page details the steps involved in creating a software application using Vitis, an VS Code-based IDE, to run on the hardware platform created using Vivado. You should be using a Vitis version that matches your Vivado version.
 
 Note: There are slight differences in GUI and options based on the version. The spirit of what is being done remains the same.
 
-## Vitis Classic
+## Vitis
 
-Open the VItis IDE from the start menu or by clicking the desktop icon. Do NOT start from Tools > Launch Vitis IDE from Vivado, as it will launch VS Code based IDE, which we won't be using for now.
+Open the VItis IDE from the start menu or by clicking the desktop icon or from Tools > Launch Vitis IDE from Vivado.
 
-Give a **workspace** path. This can be any folder, though it might a good idea to create it under <vivado project path>\\workspace, so that the hardware and software projects are in the same folder. 
+Give a **workspace** path. This can be any folder, though it might a good idea to create it under <vivado project path>\\workspace, so that the hardware and software projects are in the same folder.
 
 This will bring up the IDE. Click **Create Platform Project** (or File>New>Platform Project).
 
