@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This manual contains step-by-step instructions on how to create a hardware platform that utilizes the ARM Cortex A53 processor in the Kria board (there are two of them; we will be using only one through) and to execute simple C programs on it. The following 3 pages have the details you will need in the process.
+This manual contains step-by-step instructions on how to create a hardware platform that utilizes the ARM Cortex A53 processor in the Kria board (there are two of them; we will be using only one through) and to execute simple C programs on it. The following 4 pages have the details you will need in the process.
 
 [Creating the hardware platform](2_HW_Platform.md) - This page describes how to use Vivado to create a hardware platform using IP Integrator, and to synthesize the hardware into a bitstream. The bitstream is used to configure the FPGA to become the hardware platform that we have created. The bitstream and other hardware info are exported as a .xsa file.
 
@@ -12,6 +12,7 @@ This manual contains step-by-step instructions on how to create a hardware platf
 
 [Performance analysis](5_Performance_Analsysi.md) - This page describes some general approaches to performance analysis, as well as the specific approach followed in the assignment, which is using an AXI Timer peripheral.
 
+Further, you should integrate an AXI Timer into your block design, and modify your software C code to report the time taken for matrix multiplication. Some hints on how to do this are given on the Performance analysis page.
 
 ## Assignment 1
 
@@ -33,13 +34,18 @@ You should do all computations in C on the board using integers. Do not use [flo
 
 Assignment 1 (10 marks)
 
-Demonstrate during **Week 6** lab session.
+Upload the (only those files you have created/modified, not the entire project folder)
 
-**Upload**
+* .xsa file
+* .c/.h files
+* input/output test files
+* a text file that mentions the time taken in cycles or milliseconds (you should be able to convert between the two easily anyway) - this info can be copy-pasted from the realterm console to a text file.
+to be used for the demo to Canvas by 11:59 PM, **14 Sep 2025**.
+The deadline is slightly negotiable for part-time students. You will also be required to do a demonstration (based on what you submitted at the point of the assignment deadline, not the version you may have improved after the deadline) to a teaching assistant sometime in the future - details to be announced.
 
-Upload the .xsa file, C/H, and input/output test files (i.e., only those files you have created/modified, not the entire project folder) **used for the demo** (not modified to fix issues that became apparent during the demo) to Canvas within 1 hour of your demo. It should be as a .zip archive, with the filename Wed/Fri_GroupNum_Lab2.zip.
+It should be as a single .zip archive, with the filename  <Team number>\_<Team member 1 Name>\_<Team member 2 Name>.zip
 
-Please **DO NOT** upload the whole project!
+Please DO NOT upload the whole project!
 
 ## Dataset Description (Optional Read)
 
@@ -52,7 +58,6 @@ Here, we use a modified version of the Wine dataset from [https://archive.ics.u
 * What we do in this lab is essentially the prediction/inference step in machine learning/classification. The classifier is trained using [Fisher's linear discriminant](https://en.wikipedia.org/wiki/Linear_discriminant_analysis) method (matrix **B** in the description above is the weight vector), with some modifications to accommodate the 8-bit format.
 
 ## Tips and Suggestions
-
 
 You can do most of the testing of your C program logic without accessing the FPGA board. You can run it locally using a C/C++ IDE of your choice (such as  [Visual Studio Code](https://code.visualstudio.com/docs/languages/cpp)) or using an online compiler like [https://www.onlinegdb.com/online\_c\_compiler](https://www.onlinegdb.com/online_c_compiler). Since the typical console (interface) you get cannot send files (such as A.csv and B.csv), you can copy-paste the file contents on the console, line by line, with the enter key pressed at the end of each line. If the console of the IDE you are using does not support copy-pasting, you will have to type it out. You can experiment with smaller matrices first to avoid wasting time doing too many copy-pastes.
 
