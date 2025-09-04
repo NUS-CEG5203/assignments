@@ -34,5 +34,3 @@ Using UART driver functions (The low-level way - great power, great responsibili
 * XUartPs\_CfgInitialize(&Uart\_Ps,...) // Initializes the hardware and driver instance
 * XUartPs\_SetBaudRate(&Uart\_Ps,...) // Additional hardware specific settings/initializations. Following this, you can use the Send and Recv functions.
 * Instead of starting from scratch, start with the examples from system.mss entry for the hardware you are looking at. For UART, you can probably start with xuartps\_hello\_world\_example and modify it to suit your needs.
-
-Instead of just clicking 'Run' in the Vitis, you can click 'Debug' and do debugging just like how you do on any IDE. This will allow you to inspect what is happening in each line, send something from RealTerm and see what is received, etc.
