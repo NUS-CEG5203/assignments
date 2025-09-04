@@ -19,4 +19,4 @@ A typical way of doing profiling is to sample the program counter through the de
 
 Note that you may need to loop the contents of each function (say, loopback_FIFO() vs matrix_multiply()) many times (after receiving the data just one time via the serial console\*) to get a statistically meaningful comparison between these two when profiling using the TCF profiler.
 
-\* You may want to hardcode the arrays A and B in your program spurely for performance analysis. This is so that the time required for receiving the data via serial console does not dominate the relative time taken in each function.
+\* You may want to hardcode the arrays A and B in your program purely for performance analysis. This is so that the time required for receiving the data via serial console does not dominate.
