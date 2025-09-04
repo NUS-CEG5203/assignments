@@ -1,0 +1,1 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qstdin and stdout are interfaces through which console-oriented functions such as printf(), scanf(), getchar(), gets(), putchar(), puts() send data to be isplayed on the console and receive data from the console.\\E$"}

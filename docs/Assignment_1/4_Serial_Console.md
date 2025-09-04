@@ -34,10 +34,12 @@ Capturing data into a file using RealTerm: Click on **Capture** tab and specify 
 
 **Explore the various features of RealTerm** and be familiar with it.
 
-The data can be displayed in a number of different formats, selectable from the Display tab.
+The data can be displayed in a number of different formats, selectable from the Display tab. 
 
 You can also click on the black part of the screen to send what you type, similar to how it is in TeraTerm/PuTTY etc. You can enable 'Half Duplex' in the Display tab if you like to see what you send out in a different color (green). The received data will be in yellow color.
 
 You can enable newLine mode if you wish the incoming formatting characters such as \\n to work as intended, instead of simply displaying it - RealTerm displays \\n as lf (linefeed) and \\r as cr (carriage return).
 
-Don't be afraid to try out the various options in the tabs 'Display', 'Capture', Send' in RealTerm. Most importantly, the settings on Port has to be correct for things to work. Generally, I uncheck 'Direct Capture' and check 'Half Duplex' and 'newLine mode' so that I can see everything that is sent and received on the console.
+It may be a good idea to uncheck 'Direct Capture' so that you can see everything that is received on the console even when you are capturing into a file.
+
+An editor such as Notepad++ can show you all characters in a file you are planning to send from RealTerm, including non-printable characters such as \\r (CR-carriage return) and \\n (LF-linefeed). You can view it by going to View>Show Symbol>Show All Characters in Notepad++. When sending using the 'Send ASCII' option in RealTerm, make sure you append \\r or \\n.
