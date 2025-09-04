@@ -26,7 +26,7 @@ Using UART driver functions (The low-level way - great power, great responsibili
 * Gives you full control over what is sent and what is received to/from the console.
 * You need to initialize the UART driver before you can use functions such as XUartPs\_Send() and XUartPs\_Recv() or the lower level XUartPs\_SendByte() and XUartPs\_RecvByte().
 * These are non-blocking functions (so you need to check the return value to see how many characters you have received) which give you full control (no need for \\r or \\n).
-* The basic procedure to deal with all hardware in the Xilinx toolchain is the same, as exemplified below through XUartPs. You can go to $your\_bsp$>system.mss and see the driver documentation and examples.
+* The basic procedure to deal with all hardware in the Xilinx toolchain is the same, as exemplified below through XUartPs. You can go to your\_bsp>system.mss and see the driver documentation and examples.
 * XUartPs Uart\_Ps //Declare a driver instance (not a pointer to this instance) as a global variable. All UART-related functions use a pointer to this instance.
 * XUartPs\_LookupConfig(DeviceId); // Looks up hardware instance info such as base address etc. DeviceId is usually XPAR\_XUARTPS\_0\_DEVICE\_ID, defined in xparameters.h.
 * XUartPs\_CfgInitialize(&Uart\_Ps,...) // Initializes the hardware and driver instance
