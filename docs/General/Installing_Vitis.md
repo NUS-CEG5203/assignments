@@ -4,7 +4,7 @@ The complete development suite from AMD/Xilinx is also called Vitis, which inclu
 
 Installation in Linux is recommended, especially if you want to explore more. Some tools/features such as AI Engine Development Flow, Petalinux, etc are available only for Linux. The performance and stability are generally better under Linux too. The basic requirements in EE4218 can be met by a Windows installation. WSL2 seems to work too but YMMV.
 
-Vitis IDE is switching from being Eclipse-based to Visual Studio Code-based. However, we still recommend the Eclipse-based 'Vitis Classic' IDE as the VS based 'Vitis IDE' one does have shortcomings (e.g.: driver generation for peripherals in PL). Newer (2024.x) versions of Vitis based on Visual Studio code seems to be ok though.
+Vitis IDE has switched from Eclipse-based to Visual Studio Code-based. If you are using an older version of Vitis, it is better to stay with the Eclipse-based 'Vitis Classic' IDE as the VS based 'Vitis IDE' in these versions have rough edges (e.g.: driver generation for peripherals in PL). Newer (>=2024.x) versions of Vitis based on VS code is ok though, and is recommended.
 
 It is **not recommended** to install on MacOS through a virtual machine. If you use a Mac, install Windows and/or Linux for a dual/triple boot.
 
@@ -32,9 +32,9 @@ Below are the steps to be followed to install **Xilinx Vitis 2025.1**. The inst
 
 ![](Vivado_Install/Device_Selection.png)
 
-  * Artix-7 should be selected if you plan to play with other cheaper FPGAs in the future, else uncheck it.
+* Artix-7 should be selected if you plan to play with other cheaper FPGAs in the future, else uncheck it.
 
-  * If you plan to try Alveo on some cloud-based service (e.g., Nimbix cloud) in the future, select that too. It is unnecessary for CEG5203 and increases install size substantially.
+* If you plan to try Alveo on some cloud-based service (e.g., Nimbix cloud) in the future, select that too. It is unnecessary for CEG5203 and increases install size substantially.
 
 * Click Next and Select a suitable directory, Next, and Install. If you are prompted to allow installation of some hardware, firewall warnings about opening certain ports, etc, simply click allow without changing the default options. This may also happen during the first run of certain tools after installation. Make sure you allow or you will have a tough time fixing it later.
 
@@ -76,4 +76,4 @@ Host ID is your PC/Laptop hostname. Select the appropriate OS. Select Host ID Ty
 
 You can now download the license file ![](Vivado_Install/License_Download.png). It will also be emailed to you.
 
-Now, in the start menu, open Xilinx Design Tools > Manage Licenses 2023.2. Now Get License > Load License > Copy License, and navigate to and select the .lic file. Restart all Xilinx programs (Vivado/Vitis, etc). Done!
+Now, in the start menu, open Xilinx Design Tools > Manage Licenses 2025.1. Now Get License > Load License > Copy License, and navigate to and select the .lic file. Restart all Xilinx programs (Vivado/Vitis, etc). Done!
