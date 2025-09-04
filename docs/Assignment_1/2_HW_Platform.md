@@ -72,7 +72,7 @@ Select both the automations and click OK. 
 
 ![](2_HW_Platform/image-202fd728-8df7-444b-be4f-b245ac9e0b98.png)
 
-It will add two blocks - Processor System Reset (to reset peripherals as appropriate - more useful in designs using Microblaze, a soft processor), and an AXI Interconnect (since AXI Stream FIFO has 2 slave interfaces, both of which need to be connected to the same master interface of PS.
+It will add two blocks - Processor System Reset (to reset peripherals as appropriate - more useful in designs using Microblaze, a soft processor), and an AXI Interconnect - since AXI Stream FIFO has 2 slave interfaces, both of which need to be connected to the same master interface of PS.
 
 Finally, make a loopback connection - connect the AXI\_STR\_TXD to AXI\_STR\_RXD. Since we do not have a co-processor yet, this connection will have the effect of a coprocessor that simply echos (sends back) the data it receives.
 

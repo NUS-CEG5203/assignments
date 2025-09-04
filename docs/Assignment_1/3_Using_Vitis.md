@@ -1,5 +1,7 @@
 # Software development using Vitis
 
+If you are using Vitis version <= 2023.2, please follow the instructions for [Eclipse-based Vitis Classic](3_Using_Vitis_Classic.md) instead.
+
 This page details the steps involved in creating a software application using Vitis, an VS Code-based IDE, to run on the hardware platform created using Vivado. You should be using a Vitis version that matches your Vivado version.
 
 Note: There are slight differences in GUI and options based on the version. The spirit of what is being done remains the same.
