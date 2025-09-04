@@ -1,12 +1,10 @@
 # Serial Console - RealTerm
 
-Note: See the last tip in [Introduction to Hardware/Software Co-design](1_Intro.md) page for an important tip.
-
 RealTerm is a terminal program specially designed for capturing and sending data through various protocols (UART, Raw TCP sockets etc). The purpose is similar to that of TeraTerm or PuTTY or GTKTerm or Serial Monitor (Arduino), but RealTerm is WAAY more feature-rich than any other serial console program.
 
 The program can be downloaded from [https://realterm.i2cchip.com/Realterm\_3.0.1.44\_setup.exe](https://realterm.i2cchip.com/Realterm_3.0.1.44_setup.exe). Older versions are fine too. The newer versions have more options and look slightly different from the screenshots on this page.
 
-If you are using FPGA locally, you need to configure the correct port and baud‐rate (**115200**) in RealTerm. This is shown in the figure below. Please ensure that **Change** is clicked after any port/speed modification.
+If you are using FPGA locally, you need to configure the correct port and baud‐rate (**115200**) in RealTerm. This is shown in the figure below. Please ensure that **Change** is clicked after any port/speed modification. If you see strange-looking characters on your console, your baud rate setting in RealTerm is likely wrong.
 
 ![](4_Serial_Console/image-33f578bc-116b-474e-8f49-aff0209b56d9.png)
 
@@ -41,3 +39,5 @@ The data can be displayed in a number of different formats, selectable from the 
 You can also click on the black part of the screen to send what you type, similar to how it is in TeraTerm/PuTTY etc. You can enable 'Half Duplex' in the Display tab if you like to see what you send out in a different color (green). The received data will be in yellow color.
 
 You can enable newLine mode if you wish the incoming formatting characters such as \\n to work as intended, instead of simply displaying it - RealTerm displays \\n as lf (linefeed) and \\r as cr (carriage return).
+
+Don't be afraid to try out the various options in the tabs 'Display', 'Capture', Send' in RealTerm. Most importantly, the settings on Port has to be correct for things to work. Generally, I uncheck 'Direct Capture' and check 'Half Duplex' and 'newLine mode' so that I can see everything that is sent and received on the console.

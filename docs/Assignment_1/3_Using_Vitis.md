@@ -49,6 +49,8 @@ We can run the program by clicking **Run** as shown below (Debug is also ok, if 
 
 ![](3_Using_Vitis/Run_Config.png).
 
+If your program is inhibiting unpredictable behavior when dealing with large data, it could be due to stack or heap size limitations. You can increase the heap or stack size by editing the linker script (.ld file) which you can find in the project sources.
+
 For future runs, if your hardware configurations has not been changed, you can uncheck the 'Reset Entire System' and 'Program Device' which may save some time.
 
 If the program ran successfully, you can see something similar to the screenshot below in your serial terminal (console) program such as RealTerm. The formatting could appear a bit different depending on the terminal program and CR/LF settings.
