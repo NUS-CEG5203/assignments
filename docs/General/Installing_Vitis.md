@@ -28,7 +28,7 @@ Below are the steps to be followed to install **Xilinx Vitis 2025.1**. The inst
 
 * On the next page, click Next.
 
-* Do the selection as given in the screenshot below (taken in a slightly older version, but the selections are the same though the UI may look slightly different). Must haves are Vitis, Vivado, Vitis HLS, Install Devices for Kria SOMs and Starter Kits, Zynq UltraScale+ MPSoC, Install Cable Drivers.
+* Do the selection as given in the screenshot below (taken in a slightly older version, but the selections are the same though the UI may look slightly different in the recommnded version, i.e., 2015.1). Must haves are Vitis, Vivado, Vitis HLS, Install Devices for Kria SOMs and Starter Kits, Zynq UltraScale+ MPSoC, Install Cable Drivers.
 
 ![](Vivado_Install/Device_Selection.png)
 
