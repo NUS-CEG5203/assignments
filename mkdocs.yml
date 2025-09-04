@@ -15,6 +15,7 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - abbr
+  - admonition
   - attr_list
   - pymdownx.snippets
 extra_javascript:
