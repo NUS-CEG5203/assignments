@@ -76,6 +76,9 @@ mwr 0xff5e0200 0x0100
 rst -system
 ```
 
+!!! info
+    If your program is inhibiting unpredictable behavior when dealing with large data, it could be due to stack or heap size limitations. You can increase the heap or stack size by editing the linker script (.ld file) which you can find in the project sources.
+
 References:
 
 https://support.xilinx.com/s/question/0D52E00006pW5zTSAS/error-memory-write-error-at-0x0-cortexa53-0-editr-not-ready-when-trying-to-debug-using-platform-cable-ii?language=en\_US  

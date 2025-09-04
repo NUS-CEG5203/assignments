@@ -1,5 +1,8 @@
 # Introduction to Hardware/Software Co-Design
 
+!!! success "Final"
+    This assignment description is now complete. There could still be minor updates. 
+
 ## Introduction
 
 This manual contains step-by-step instructions on how to create a hardware platform that utilizes the ARM Cortex A53 processor in the Kria board (there are four of them; we will be using only one through) and to execute simple C programs on it. The following 4 pages have the details you will need in the process.

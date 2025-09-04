@@ -8,7 +8,8 @@ Open Vivado.
 
 File>Project>New
 
-As a general rule, DO NOT use spaces in the paths for any of your projects/workspaces. This is a good practice not only for Vitis/Vivado but for a number of hardware and software development tools.
+!!! info
+    As a general rule, DO NOT use spaces in the paths for any of your projects/workspaces. This is a good practice not only for Vitis/Vivado but for a number of hardware and software development tools.
 
 Next> Specify a project name and location>Next>Next>Next>Next> Select the board - go to the boards tab and select _Kria KV260 Vision AI Starter Kit SOM_ >Next>Finish.
 
