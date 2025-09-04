@@ -6,11 +6,11 @@ Welcome to the exciting world of hardware acceleration. We have prepared a serie
 
 ### Board Collection Venue
 
-Digital Electronics Lab (E4 level 3).
+Digital Electronics Lab (E4 level 3). Only 9 am to 12 noon, and 2 pm to 5 pm on working days.
 
 ### Kria Board
 
-You will be provided a Kria KV260 SOM Vision Starter Kit containing a Xilinx Zynq Ultrascale+ SoC. More information about the board can be found at <https://www.xilinx.com/products/som/kria/kv260-vision-starter-kit/kv260-getting-started/getting-started.html> (scroll down).
+You will be provided a Kria KV260 SOM Vision Starter Kit containing an AMD/Xilinx Zynq Ultrascale+ SoC. More information about the board can be found at <https://www.amd.com/en/products/system-on-modules/kria/k26/kv260-vision-starter-kit.html> (scroll down).
 
 #### Board Handling Guidelines
 
@@ -27,27 +27,27 @@ Here are some tips to take good care of your board:
 
 ## Policies
 
-### Late demo / submission policy
+### Late demo/submission policy
 
-You are supposed to submit your assignment to Canvas by the deadline for uploading - if you submit after the deadline, you will be given a high penalty. You are expected to submit the exact same code to assignments and demonstrate to the GA - any bug fixes/improvements after the deadline could you useful for future labs and project, but will not result in an increase in marks after the submission.
+You are supposed to submit your assignment to Canvas by the deadline for uploading - if you submit after the deadline, you will be given a high penalty. You are expected to submit the exact same code to assignments and demonstrate to the teaching assistant - any bug fixes/improvements after the deadline could you useful for future labs and project, but will not result in an increase in marks after the submission.
 
-A late demo is allowed (with no penalty) only if you can produce documented evidence to justify the late demo/submission - in such a case, please let us know immediately as and when such a situation arises.
+A late demo is allowed (with no penalty) only if you can produce documented evidence to explain the late demo/submission - in such a case, please let us know as soon as you can.
 
 ### Email policy
 
-Kindly *DO NOT send emails regarding labs* wherever possible. Post see below on how to get help. Only if the matter is personal / administrative, please contact the lecturer via Canvas Inbox (not emails).
+Kindly *DO NOT send emails regarding labs* wherever possible. See below on how to get help. Only if the matter is personal/administrative, please contact the lecturer via Canvas Inbox (not emails).
 
 ### How to get help
 
 If you have any questions regarding the content of any of the assignments, please follow these steps, *in this order*, to answer them.  
 
-1. Please read the assignment manual closely. We will try our best to keep the manual updated with any common errors, or issues, that you may face.
+1. Please read the assignment manual closely. We will try our best to keep the manual updated with any common errors or issues that you may face.
 
 2. If the assignment manual does not answer your question, [the GitHub repository](https://github.com/nus-CEG5203/assignments) has a [discussions page](https://github.com/NUS-CEG5203/assignments/discussions). Please search here for your question, in case it has already been answered before. We will leave questions and answers from previous semesters on this page, so over time, more and more information should be covered between here and the manuals.
 
 3. If you cannot find an answer to your question in the discussions either, then please create a new discussion. Make sure your title is as succinct, but descriptive, as possible, for the benefit of others who may search the issues page later. Also, do make sure you include all relevant details in the discussion content. [This webpage](https://www.freecodecamp.org/news/how-to-ask-good-technical-questions/) offers some helpful advice on how to ask good technical questions.
 
-4. Please **DO NOT** send emails to the teaching staff asking technical questions regarding the lab activities. We will ignore all such emails, with no exception. Post all technical questions to the discussions page. This benefits others, because anyone who has the issue in the future can solve it quickly with a search. It also benefits you, because you may receive an answer faster from a classmate, than from us.
+4. Please **DO NOT** send emails to the teaching staff asking technical questions regarding the lab activities. We will ignore all such emails, with no exception. Post all technical questions to the discussions page. This benefits others because anyone who has the issue in the future can solve it quickly with a search. It also benefits you, because you may receive an answer faster from a classmate, than from us.
 
 On that subject, please do join in and help each other out in the discussions as far as possible.
 
@@ -59,7 +59,7 @@ If you think renaming variables / rearranging code helps circumvent plagiarism d
 
 Discussions are encouraged, but 'we had discussed' is not a valid excuse if your codes turn out to be uncomfortably similar.
 
-Though there will be intra-team differentiation in marks according to the contribution levels, a team will be collectively responsible for plagiarized code. Your teammates might be better off with no contribution at all from you than to receive plagiarized code.
+Though there will be intra-team differentiation in marks according to the contribution levels, a team will be collectively responsible for plagiarised code. Your teammates might be better off with no contribution at all from you than to receive plagiarised code.
 
 ## Updates
 
@@ -69,4 +69,4 @@ Though there will be intra-team differentiation in marks according to the contri
 
 ## License
 
- [NUS CEG5203 Assignment Manuals](https://github.com/NUS-CEG5203/assignments) © 2025 by [NUS CEG5203 Team](https://github.com/nus-) is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1)  
+ [NUS CEG5203 Assignment Manuals](https://github.com/NUS-CEG5203/assignments) © 2025 by NUS CEG5203 Team is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1)  
