@@ -12,13 +12,11 @@ This manual contains step-by-step instructions on how to create a hardware platf
 
 [Performance analysis](5_Performance_Analysis.md) - This page describes some general approaches to performance analysis, as well as the specific approach followed in the assignment, which is using an AXI Timer peripheral.
 
-Further, you should integrate an AXI Timer into your block design, and modify your software C code to report the time taken for matrix multiplication. Some hints on how to do this are given on the Performance analysis page.
-
 ## Assignment 1
 
 Assignment #1 is a homework exercise and carries 10 marks.
 
-All the required files are [here](https://github.com/NUS-EE4218/labs/tree/main/Lab_2)
+All the required files are [here](https://github.com/NUS-CEG5203/assignments/tree/main/code_templates/Asst1)
 
 The matrix **A** is a 64 x 8 matrix given in A.csv (CSV = comma-separated values). The elements of A are in the corresponding ASCII form in A.csv - this is essentially a text file and can be opened using a text editor\*. You can also open it with Excel, which will show it as a table. 
 
@@ -26,22 +24,23 @@ The matrix **B** is an 8 x 1 matrix given in B.csv, encoded in a similar manner 
 
 These two files should be sent from RealTerm (or another terminal program) to your C program running on board. Your C program should 
 
-* receive it into a local array/arrays (either a single array for A and B together, or separate arrays),
-* pass it through the AXI Stream FIFO configured in loopback mode, 
-* compute the result matrix, **RES** = **A**\***B**/**256**. 
+* receive it into a local array/arrays (either a single array for A and B together or separate arrays)
+* pass it through the AXI Stream FIFO configured in loopback mode
+* compute the result matrix, **RES** = **A**\***B**/**256**
 * send RES back from the board to the PC (RealTerm)
+
 The received result should be captured into a file via RealTerm. The name of the file has to be “RES.csv”.  
 
 You can compare the RES.csv with Labels.csv on your PC using an Excel-like program (i.e., Labels.csv should not be sent to the board). Do you observe any pattern?
 
 You should do all computations in C on the board using integers. Do not use [floating-point](https://en.wikipedia.org/wiki/Floating-point_error_mitigation) (i.e., variables should not be declared as float).
 
-Further, you should integrate an AXI Timer into your block design, and modify your software C code to report
+Further, you should integrate an **AXI Timer** into your block design, and modify your software C code to report
 
-* the time taken for sending all the data through the AXI Stream FIFO,
+* the time taken for sending all the data through the AXI Stream FIFO, and
 * the time taken for matrix multiplication. 
 
-The relative time required for the above two has to be reported through profiling as well.
+The relative time required for the above two has to be reported through **profiling** as well.
 Some hints on how this can be done is given on the [Performance analysis](5_Performance_Analysis.md) page.
 
 
@@ -56,7 +55,7 @@ Upload the (only those files you have created/modified, not the entire project f
 * input/output test files
 * a text file that mentions the time taken in cycles or milliseconds (you should be able to convert between the two easily anyway) - this info can be copy-pasted from the realterm console to a text file
 * a screenshot of the profiling output
-to Canvas by 11:59 PM, **14 Sep 2025**.
+to Canvas by 11:59 PM, **15 Sep 2025**.
 The deadline is slightly negotiable for part-time students. You will also be required to do a demonstration (based on what you submitted at the point of the assignment deadline, not the version you may have improved after the deadline) to a teaching assistant sometime in the future - details to be announced.
 
 It should be as a single .zip archive, with the filename \<\Team number>\_<\Team member 1 Name>\_\<\Team member 2 Name>.zip
