@@ -56,15 +56,15 @@ Vitis/Vivado works very well in RHEL (best-supported)/Fedora/Ubuntu. The instruc
 
 * A dialog box showing Tool installation completed will pop up, asking you to run the installLibs.sh under <install_dir>//Xilinx/2025.1/Vitis/scripts to install the necessary libraries, with sudo.
 
-* To install cable drivers to access the board, run as sudo the script <install_dir>//Xilinx/2025.1/Vitis/data/xicom/cable\_drivers/lin64/install\_script/install\_drivers.
+* To install cable drivers to access the board, run `sudo <install_dir>/Xilinx/2025.1/Vitis/data/xicom/cable_drivers/lin64/install_script/install_drivers/install_drivers.sh`
 
-* If the desktop icon does not work or if you are ssh-ing into a remote Linux system with x forwarding, in command line : source <install_dir>//Xilinx/2025.1/Vivado/settings64.sh, followed by the command Vivado.
+* If the desktop icon does not work or if you are ssh-ing into a remote Linux system with x forwarding, in command line : `source <install_dir>//Xilinx/2025.1/Vivado/settings64.sh`, followed by the command `vivado`.
 
 * If starting from GUI fails, run from command line to identify the missing library and install it.
 
-* Do sudo adduser $USER dialout if you want to be able to access local hardware without sudo.
+* Do `sudo adduser $USER dialout` if you want to be able to access local hardware without sudo.
 
-* If you have trouble connecting to the board even after that, perhaps you should run sudo ufw allow 3121/tcp.
+* If you have trouble connecting to the board even after that, perhaps you should run `sudo ufw allow 3121/tcp`.
 
 ## Installing Vitis HLS License
 
