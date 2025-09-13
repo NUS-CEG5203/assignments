@@ -1,7 +1,7 @@
 # Introduction to Hardware/Software Co-Design
 
 !!! success "Final"
-    This assignment description is now complete. There could still be minor updates. 
+    This assignment description is now complete. There could still be minor updates, which will be <span style="color: brown;">highlighted</span>. 
 
 ## Introduction
 
@@ -27,25 +27,22 @@ The matrix **B** is an 8 x 1 matrix given in B.csv, encoded in a similar manner 
 
 These two files should be sent from RealTerm (or another terminal program) to your C program running on board. Your C program should 
 
-* receive it into a local array/arrays (either a single array for A and B together or separate arrays)
-* pass it through the AXI Stream FIFO configured in loopback mode
-* compute the result matrix, **RES** = **A**\***B**/**256**
-* send RES back from the board to the PC (RealTerm)
+* **receive matrices A and B** into a local array/arrays (either a single array for A and B together or separate arrays);
+* pass it through the AXI Stream FIFO configured in **loopback** mode - no processing done in hardware/PL, for now;
+* **compute** the result matrix, **RES** = **A**\***B**/**256**;
+* **send RES back** from the board to the PC (RealTerm).
 
-The received result should be captured into a file via RealTerm. The name of the file has to be “RES.csv”.  
-
-You can compare the RES.csv with Labels.csv on your PC using an Excel-like program (i.e., Labels.csv should not be sent to the board). Do you observe any pattern?
-
-You should do all computations in C on the board using integers. Do not use [floating-point](https://en.wikipedia.org/wiki/Floating-point_error_mitigation) (i.e., variables should not be declared as float).
+The received result should be **captured into a file** via RealTerm. The name of the file has to be “RES.csv”. You can compare the RES.csv with Labels.csv on your PC using an Excel-like program (i.e., Labels.csv should not be sent to the board). Do you observe any pattern?
 
 Further, you should integrate an **AXI Timer** into your block design, and modify your software C code to report
 
-* the time taken for sending all the data through the AXI Stream FIFO, and
-* the time taken for matrix multiplication. 
+* the time taken for sending all the <span style="color: brown;">input</span> data <span style="color: brown;">matrices **A** and **B**</span> through the AXI Stream FIFO, and
+* the time taken for matrix multiplication <span style="color: brown;">(**A**\***B**/**256**)</span>.
 
 The relative time required for the above two has to be reported through **profiling** as well.
 Some hints on how this can be done is given on the [Performance analysis](5_Performance_Analysis.md) page.
 
+You should do all computations in C on the board using integers. Do not use [floating-point](https://en.wikipedia.org/wiki/Floating-point_error_mitigation) (i.e., variables should not be declared as float).
 
 ## Submission Info
 
