@@ -56,7 +56,7 @@ Note that while these optimizations are applied independently, some optimization
 
 ### Submission Info
 
-**Assignment 4 (7 marks)**
+**Assignment 2 (10 marks)**
 
 Demonstrate in week 9.
 
