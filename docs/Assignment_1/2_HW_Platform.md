@@ -65,7 +65,9 @@ Click the + button on the IP Integrator canvas to add an IP. Select AXI-Stream F
 
 While the IP Integrator shows the option for running connection automation, do not do this as yet. Instead, double-click on the AXI Stream FIFO that we added to customize it.
 
-Change the settings as follows, and click OK. Choosing AXI (full AXI) instead of AXI Lite (default) allows the data transfer to be potentially faster, as full AXI can do burst transfers (slave auto-increments addresses so that multiple data can be transferred with a single address). We can disable 'Enable Transmit Control' as we will be doing all the data transfer continuously. Make sure that the Data Width is 32. Increase the Transmit FIFO depth to 1024, as we will be sending more than 512 words later.
+Change the settings as follows, and click OK. Choosing AXI (full AXI) instead of AXI Lite (default) allows the data transfer to be potentially faster, as full AXI can do burst transfers (slave auto-increments addresses so that multiple data can be transferred with a single address). We can disable 'Enable Transmit Control' as we will be doing all the data transfer continuously. Make sure that the Data Width is 32. 
+
+Under the Transmit FIFO options **AND** the Receive FIFO options (not shown in picture), increase FIFO depth to 1024, as we will be sending more than 512 words later through the loopback connection between the TX and RX line which passes through **both** buffers.
 
 ![](2_HW_Platform/image-0eedde7a-d9bc-4c68-8686-509eaf919f54.png)
 
