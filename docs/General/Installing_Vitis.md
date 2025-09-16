@@ -68,6 +68,8 @@ Vitis/Vivado works very well in RHEL (best-supported)/Fedora/Ubuntu. The instruc
 
 ## Installing Vitis HLS License
 
+The official instructions are here - https://docs.amd.com/r/en-US/ug1399-vitis-hls/Obtaining-a-Vitis-HLS-License
+
 Go to [https://www.xilinx.com/getlicenseLinks](https://www.xilinx.com/getlicense). Login, fill up the license form.
 
 Under Certificate based license > Vivado/Vitis HLS License > Generate Node-Locked License > System Information > Host ID > Enter the details.
