@@ -38,13 +38,13 @@ You should do coprocessor Interfacing using _both_ [AXI Stream FIFO](3_FIFO.md) 
 
 The time taken for the hardware version should be inclusive of the time taken for sending data to and receiving data from the coprocessor (i.e., writing to / reading from AXI Stream FIFO), as this is an unavoidable overhead associated with offloading computations to hardware. This overhead can possibly be ignored when using DMA in a non-blocking fashion, i.e., the CPU is performing some other useful task while the DMA data transfer and co-processor computations are in progress.
 
-It is suggested that you create separate functions called from the main program - something like matrix_multiply_soft(), matrix_multiply_FIFO(), atrix_multiply_DMA) for the software and the hardware versions (using FIFO and DMA) respectively. This facilitates profiling using the TCF profiler which can do profiling only at a function level.
+It is suggested that you create separate functions called from the main program - something like matrix_multiply_soft(), matrix_multiply_FIFO(), matrix_multiply_DMA) for the software and the hardware versions (using FIFO and DMA) respectively. This facilitates profiling using the TCF profiler which can do profiling only at a function level.
 
 The time taken for sending and receiving data via UART should not be considered, as it has nothing to do with computation/hardware acceleration. It is suggested that the data is hard-coded as a C-array rather than receiving it via UART for this assignment.
 
 3) You are also required to try at least one possible optimization in HLS and compare the performance on hardware (which wouldn't require any modifications to your software C code) with the vanilla (non-optimized) version. The C code for HLS needs to have appropriate pragmas inserted manually or graphically. This is a self-learning / self-exploration exercise.
 
-You should read and get an overview of the following 4 optimizations from the document https://www.xilinx.com/content/dam/xilinx/support/documentation/sw_manuals/xilinx2018_1/ug1270-vivado-hls-opt-methodology-guide.pdfLinks. The page numbers below are the pages where the topic starts, not necessarily the only 4 pages you need to read. These were covered in the lecture on a conceptual level.
+You should read and get an overview of the following 4 optimizations from the document https://docs.amd.com/v/u/en-US/ug1270-vivado-hls-opt-methodology-guide. The page numbers below are the pages where the topic starts, not necessarily the only 4 pages you need to read. These were covered in the lecture on a conceptual level.
 
 * pragma HLS array_partition....83
 * pragma HLS dataflow...............91
@@ -67,11 +67,7 @@ To summarise, we have 3 scenarios. We can have either a single project combining
 
 **Assignment 2 (10 marks)**
 
-An evaluation with a teaching assistant will be arranged, details will be made known in due course.
-
-**Upload**
-
-Upload a .zip file containing the
+**Upload** .zip file containing the
 
 * the .cpp files used for HLS implementation and test/co-simulation. The directives.tcl file should also be included if the 'Directive Destination' is 'Directive File' instead of 'Source File'.
 * .C/H file(s) running on ARM Cortex A53 used to send data to the co-processor, including timer (only those you have modified).
@@ -93,7 +89,7 @@ You will also need to do an online demonstration to a teaching assistant (based 
 Here are some references that can help you get started with Vivado High-Level Synthesis tool
 
 - [A good Xilinx official presentation on optimization](http://users.ece.utexas.edu/~gerstl/ee382v_f14/soc/vivado_hls/VivadoHLS_Improving_Performance.pdf)
-- <https://docs.xilinx.com/r/en-US/ug1399-vitis-hls/Getting-Started-with-Vitis-HLS>
-- [Vivado Design Hub - High-Level Synthesis](https://www.xilinx.com/support/documentation-navigation/design-hubs/dh0012-vivado-high-level-synthesis-hub.html). The documents here are very very useful.
-- [Vivado HLS flow on Zynq workshop](http://www.xilinx.com/support/university/vivado/vivado-workshops/Vivado-high-level-synthesis-flow-zynq.html):  just register for a Xilinx account then you can download all the material for the workshop. After finishing all the labs, you should be able to apply HLS to your project.
+- [HLS Introduction from Xilinx/AMD](https://docs.amd.com/r/en-US/ug1399-vitis-hls)
+- [Vitis Design Hub - High-Level Synthesis](https://docs.amd.com/v/u/en-US/dh0090-vitis-hls-hub). The documents here are very very useful.
+- [Vivado HLS flow on Zynq workshop](https://www.amd.com/en/corporate/university-program/vivado/vivado-workshops/vivado-high-level-synthesis-flow-zynq.html):  just register for a Xilinx account then you can download all the material for the workshop. After finishing all the labs, you should be able to apply HLS to your project.
 - [Parallel Programming for FPGAs](http://kastner.ucsd.edu/wp-content/uploads/2018/03/admin/pp4fpgas11.12.2018.pdf) : A very good free textbook on HLS (<http://kastner.ucsd.edu/hlsbook/>).
