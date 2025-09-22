@@ -22,11 +22,11 @@ In Vitis, select the Switch / re-read XSA option as shown in the screenshot belo
 
 Once this is done, build the platform project again.
 
-[](ModifyCoPro/ModifyCoPro_Vitis_Select_New_XSA.png)
+![](ModifyCoPro/ModifyCoPro_Vitis_Select_New_XSA.png)
 
 If you run into issues, Regenerate BSP as shown in the screenshot below.
 
-[](ModifyCoPro/ModifyCoPro_VitisRegenerateBSP.png)
+![](ModifyCoPro/ModifyCoPro_VitisRegenerateBSP.png)
 
 If that doesn't work either, create a new workspace, and then an application project using the new .xsa file. Copy over your C code to the new project.
 
