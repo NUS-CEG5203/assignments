@@ -22,8 +22,6 @@ Then build the design_1_wrapper.
 
 ![image2020-5-27_1-33-31.png](ModifyCoPro/ModifyCoPro_VitisExplorer_Build.png)
 
-Change your C code if/as necessary and then build your application project. If you get errors about fsbl, you can ignore it as long as the .elf corresponding to your application is successfully built. (FSBL = first stage boot loader, needed only if you are planning to boot from SD card. In our case, the program is loaded by the debugger hardware, so we don't have to bother.). 
-
 The Vitis project doesn't always get updated that properly. If you run into issues, Reset BSP Sources as shown in the figure below, and build the hardware and application projects.
 
 ![image2020-5-27_10-16-46.png](ModifyCoPro/ModifyCoPro_VitisResetBSP.png)
