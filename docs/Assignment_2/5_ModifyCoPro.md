@@ -14,7 +14,14 @@ Now, you can go ahead and** Generate Bitstream**.
 
 Once the hardware is generated, Export > **Export Hardware**. Don't forget to **Include bitstream**.
 
-For Vitis, you have to do it explicitly by right-clicking on the hardware platform as shown in the figure below. You will then be required to browse to the updated .xsa file, followed by two OKs.
+
+## Vitis
+
+For Vitis Classic, you have to do it explicitly by right-clicking on the hardware platform as shown in the figure below. You will then be required to browse to the updated .xsa file, followed by two OKs.
+
+## Vitis Classic
+
+For Vitis Classic, you have to do it explicitly by right-clicking on the hardware platform as shown in the figure below. You will then be required to browse to the updated .xsa file, followed by two OKs.
 
 ![image2020-5-27_1-29-24.png](ModifyCoPro/ModifyCoPro_VitisExplorer.png)
 
@@ -30,4 +37,4 @@ If that doesn't work either, create a new workspace, and then an application pr
 
 Don't forget to **program the FPGA again** before running your code (which will be done automatically if the option to Program FPGA is checked in Run Configurations), as the hardware has now changed!
 
-If it still shows the old coprocessor functionality, perhaps you did not repackage the IP properly. If you are sure you did, you might want to try deleting intermediate files in Vivado and regenerating the bitstream.
+If it still shows the old coprocessor functionality, you might want to try deleting intermediate files in Vivado and regenerating the bitstream.
