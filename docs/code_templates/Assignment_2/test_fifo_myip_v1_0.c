@@ -28,12 +28,11 @@
 #define NUMBER_OF_OUTPUT_WORDS 4  // length of an input vector
 #define NUMBER_OF_TEST_VECTORS 2  // number of such test vectors (cases)
 
-#define FIFO_DEV_ID	   	XPAR_AXI_FIFO_0_DEVICE_ID
+#define FIFO_DEV_ID	   	XPAR_AXI_FIFO_MM_S_0_BASEADDR
 
 #define TIMEOUT_VALUE 1<<20; // timeout for reception
 
 /************************** Variable Definitions *****************************/
-u16 DeviceId = FIFO_DEV_ID;
 XLlFifo FifoInstance; 	// Device instance
 XLlFifo *InstancePtr = &FifoInstance; // Device pointer
 
@@ -54,9 +53,9 @@ int main()
 	XLlFifo_Config *Config;
 
 	/* Initialize the Device Configuration Interface driver */
-	Config = XLlFfio_LookupConfig(DeviceId);
+	Config = XLlFfio_LookupConfig(FIFO_DEV_ID);
 	if (!Config) {
-		xil_printf("No config found for %d\r\n", DeviceId);
+		xil_printf("No config found for %d\r\n", FIFO_DEV_ID);
 		return XST_FAILURE;
 	}
 
