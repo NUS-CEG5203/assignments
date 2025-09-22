@@ -61,7 +61,7 @@ The validate your design, i.e., to check if there are incompatible connections /
 
 While this is good enough to do the basic requirements for this lab, let us push ourselves a bit more and get readier for future labs.
 
-Click the + button on the IP Integrator canvas to add an IP. Select AXI-Stream FIFO. ![](2_HW_Platform/image-7bf91aa5-2f4d-4cf5-ab81-a80f8805119e.png) . This IP acts as a bridge between AXI (the bus-based, addressable bus system) to AXI-Stream (point-to-point, non-addressable link). This will be used to integrate our coprocessor into the rest of the system in future labs so that the main processor can send/receive data via AXI. 
+Click the + button on the IP Integrator canvas to add an IP. Select AXI-Stream FIFO. ![](2_HW_Platform/image-7bf91aa5-2f4d-4cf5-ab81-a80f8805119e.png). This IP acts as a bridge between AXI (the bus-based, addressable bus system) to AXI-Stream (point-to-point, non-addressable link). This will be used to integrate our coprocessor into the rest of the system in future labs so that the main processor can send/receive data via AXI. 
 
 While the IP Integrator shows the option for running connection automation, do not do this as yet. Instead, double-click on the AXI Stream FIFO that we added to customize it.
 

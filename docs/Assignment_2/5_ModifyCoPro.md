@@ -14,22 +14,36 @@ Now, you can go ahead and** Generate Bitstream**.
 
 Once the hardware is generated, Export > **Export Hardware**. Don't forget to **Include bitstream**.
 
+However, a new .xsa file will not cause the platform project to be modified automatically. 
 
 ## Vitis
 
-For Vitis Classic, you have to do it explicitly by right-clicking on the hardware platform as shown in the figure below. You will then be required to browse to the updated .xsa file, followed by two OKs.
+In Vitis, select the Switch / re-read XSA option as shown in the screenshot below. You will be required to browse to the updated file followed by select/OK. It will take a short while to re-read the .xsa file. 
+
+Once this is done, build the platform project again.
+
+[](ModifyCoPro/ModifyCoPro_Vitis_Select_New_XSA.png)
+
+If you run into issues, Regenerate BSP as shown in the screenshot below.
+
+[](ModifyCoPro/ModifyCoPro_VitisRegenerateBSP.png)
+
+If that doesn't work either, create a new workspace, and then an application project using the new .xsa file. Copy over your C code to the new project.
+
+If it still shows the old coprocessor functionality, you might want to try deleting intermediate files in Vivado and regenerating the bitstream.
+
 
 ## Vitis Classic
 
-For Vitis Classic, you have to do it explicitly by right-clicking on the hardware platform as shown in the figure below. You will then be required to browse to the updated .xsa file, followed by two OKs.
+For Vitis Classic, right-click on the hardware platform as shown in the figure below. You will be required to browse to the updated .xsa file, followed by two OKs.
 
 ![image2020-5-27_1-29-24.png](ModifyCoPro/ModifyCoPro_VitisExplorer.png)
 
-Then build the design_1_wrapper.
+Then build the platform project (e.g., design_1_wrapper).
 
 ![image2020-5-27_1-33-31.png](ModifyCoPro/ModifyCoPro_VitisExplorer_Build.png)
 
-The Vitis project doesn't always get updated that properly. If you run into issues, Reset BSP Sources as shown in the figure below, and build the hardware and application projects.
+The Vitis Classic project doesn't always get updated that properly. If you run into issues, Reset BSP Sources as shown in the figure below, and build the hardware and application projects.
 
 ![image2020-5-27_10-16-46.png](ModifyCoPro/ModifyCoPro_VitisResetBSP.png)
 
