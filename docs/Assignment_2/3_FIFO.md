@@ -4,7 +4,7 @@ You can read more about AXI Stream FIFO at <https://www.xilinx.com/support/docum
 
 When we use AXI Stream FIFO as the bridge, the processor reads the operands from the memory (RAM) and writes them to the transmit FIFO in AXI Stream FIFO peripheral via AXI (not AXI Stream), which in turn passes it to the coprocessor via AXI Stream. The result returned by the coprocessor gets deposited into a receive FIFO in AXI Stream FIFO peripheral, from which the processor reads it via AXI (not AXI Stream) and writes it to the memory (RAM).
 
-This manual assumes that we are using the custom IP created using the coprocessor template given for Lab 1 for adding 4 numbers. It has two AXIS interfaces - S_AXIS for sending data, and M_AXIS for receiving data. Even if the coprocessor functionality is different, the interface is still the same, and hence the procedure below applies.
+This manual assumes that we are using the custom HLS-generated IP for adding 4 numbers as mentioned in the [HLS Flow](2_HLSFLow.md) page. It has two AXIS interfaces - S_AXIS for sending data, and M_AXIS for receiving data. Even if the coprocessor functionality is different, the interface is still the same, and hence the procedure below applies.
 
 Let us assume you are starting with your Assignment 1 Vivado project as shown below, with the AXI Stream FIFO peripheral already included. If not, include AXI Stream FIFO following the instructions in Assignment 1. Also, note that the connection from the interrupt of axi_fifo_mm_s_0 to pl_ps_irq0 of zynq_ultra_ps_e_0 is optional, only if you want to use interrupts.
 
@@ -13,6 +13,8 @@ The following instructions also assume that the coprocessor is already added/ava
 ![image.png](FIFO/FIFO_System.png)
 
 ![image.png](FIFO/FIFO_IP.png)
+
+Note that the IP may look slightly differently depending on the version of Vitis, and the exact way it was created.
 
 Now, make/modify the following connections.
 
