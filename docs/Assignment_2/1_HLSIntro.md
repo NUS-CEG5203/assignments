@@ -1,7 +1,7 @@
 # High Level Synthesis
 
-!!! danger "Work in progress!"
-    This document is a draft. It may change until it is officially released, after which no further significant changes will be made. Corrections and clarifications may still be made after this date. 
+!!! success "Final"
+    This assignment description is now complete. There could still be minor updates, which will be <span style="color: brown;">highlighted</span>. 
 
 ## Introduction to High-level synthesis
 
