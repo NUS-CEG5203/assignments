@@ -51,7 +51,21 @@ You should read and get an overview of the following 4 optimizations from the do
 * pragma HLS pipeline................116
 * pragma HLS unroll....................125
 
-Note that while these optimizations are applied independently, some optimizations work well only when some other optimizations are also used. For example, doing pipelining or loop unrolling without partitioning the array wouldn't help much, as the bottleneck will be accessing the memory, 1 or 2 elements at a time. The effect of these optimizations is not always that deterministic though, given the nature and non-maturity of HLS tools. Newer versions of Vitis perform some of these optimizations (e.g., pipelining) automatically provided certain conditions are met. You can disable this from the settings to see the performance of the non-pipelined versions.
+Note that while these optimizations are applied independently, some optimizations work well only when some other optimizations are also used. For example, doing pipelining or loop unrolling without partitioning the array wouldn't help much, as the bottleneck will be accessing the memory, 1 or 2 elements at a time. The effect of these optimizations is not always that deterministic though, given the nature and non-maturity of HLS tools. 
+
+Newer versions of Vitis perform some of these optimizations (e.g., pipelining, array partitioning) automatically provided certain conditions are met. You can disable this from the settings or via pragmas to see the performance of the non-pipelined versions.
+
+``` c
+#pragma HLS pipeline off
+```
+
+It can also be done via tcl.
+
+``` tcl
+set_directive_pipeline -off [get_loops "loop_label"]
+```
+
+hls_component > settings > hls_config.cfg > C Synthesis > Compile > compile.pipeline_loops to 0 (hls component and config file names to be changed as appropriate).
 
 The dataflow optimisation by itself will likely not yield any improvement in performance without modifying the software (C program) significantly to take advantage of the hardware optimisations. This is not easy, and will ideally need an operating system (e.g., FreeRTOS that is supported out of the box), and hence is a purely optional exercise.
 
