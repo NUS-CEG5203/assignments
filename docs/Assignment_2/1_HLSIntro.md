@@ -65,7 +65,7 @@ It can also be done via tcl.
 set_directive_pipeline -off [get_loops "loop_label"]
 ```
 
-hls_component > settings > hls_config.cfg > C Synthesis > Compile > compile.pipeline_loops to 0 (hls component and config file names to be changed as appropriate).
+and also via hls_component > settings > hls_config.cfg > C Synthesis > Compile > compile.pipeline_loops to 0 (hls component and config file names to be changed as appropriate).
 
 The dataflow optimisation by itself will likely not yield any improvement in performance without modifying the software (C program) significantly to take advantage of the hardware optimisations. This is not easy, and will ideally need an operating system (e.g., FreeRTOS that is supported out of the box), and hence is a purely optional exercise.
 
