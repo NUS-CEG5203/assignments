@@ -6,7 +6,11 @@ When using AXI DMA, the processor only supplies (via AXI Lite, not AXI Stream) t
 
 Here, we will be using the Xilinx AXI DMA IP as the module that connects the coprocessor to the rest of the system. You can find the specification of AXI DMA here: <http://www.xilinx.com/support/documentation/ip_documentation/axi_dma/v7_1/pg021_axi_dma.pdf>
 
-You can start with a new project, or from the existing project. Since most of you would be reaching this step from the existing project which would have the coprocessor connected using AXI Stream FIFO. In the future, if you are starting a new project and plan to use AXI DMA, you need not have AXI Stream FIFO in your design at all. It is also fine to delete AXI Stream FIFO from the project (instructions later), which can save some hardware and synthesis time. On this page, however, we keep the AXI Stream FIFO and connect it in loopback mode, rendering it vestigial.
+You can start with a new project, or from the existing project. Since most of you would be reaching this step from the existing project which would have the coprocessor connected using AXI Stream FIFO. In the future, if you are starting a new project and plan to use AXI DMA, you need not have AXI Stream FIFO in your design at all. It is also fine to delete AXI Stream FIFO from the project (instructions later), which can save some hardware and synthesis time. 
+
+It is perfectly fine to retain AXI Stream FIFO + coprocessor, and use another instance of the coprocessor for DMA, if you are doing a combined design, i.e., a single design with FIFO-connected coprocessor + one or more DMA connected coprocessors.
+
+On this page, however, we keep the AXI Stream FIFO and connect it in loopback mode, rendering it vestigial.
 
 The following instructions also assume that the coprocessor is already added/available in the IP Integrator canvas. If not, add it from the IP Catalog.
 
@@ -24,8 +28,7 @@ Alternative: Delete the AXI Stream FIFO peripheral altogether. This can be done 
 
 This can cause some existing AXI slave connections to be broken (e.g., M0x_AXI of the AXI Interconnect to S_AXI of the peripheral), which can be easily fixed by obliging to the connection automation prompt.
 
-Connecting the Coprocessor using DMA
-------------------------------------
+## Connecting the Coprocessor using DMA
 
 From the IP catalog, add the peripheral titled AXI Direct Memory Access. Double-click it, uncheck Enable Scatter Gather Engine, and click OK. It will look like the figure below.
 
@@ -39,11 +42,11 @@ S2MM : When data has to be received from the coprocessor, the ARM core specifies
 
 First, make the M_AXIS_MM2S <->S_AXIS and M_AXIS <-> S_AXIS_S2MM connections to connect the coprocessor/myip and the DMA. You can now run connection automation, which will connect ACLK and ARESETN of myip.
 
-The DDR memory controller is implemented in the PS, which requires a slave AXI interface in PS to receive the address and read/write commands from the AXI DMA master interfaces, i.e., M_AXI_S2MM and M_AXI_MM2S. For this, we need to enable one of the Slave Interface > AXI HP (let's say, AXI LPD) in the PS-PL configuration of the Zynq Ultrascale+ MPSoC IP/zynq_ultra_ps_e_0. Double click the Zynq PS IP > PS-PL Configuration> Slave Interface > AXI HP > AXI LPD and then OK. A new interface called S_AXI_LPD will appear on the Zynq Ultrascale+ MPSoC IP block diagram in the IP Integrator canvas.
+The DDR memory controller is implemented in the PS, which requires a slave AXI interface in PS to receive the address and read/write commands from the AXI DMA master interfaces, i.e., M_AXI_S2MM and M_AXI_MM2S. For this, we need to enable one of the Slave Interface > AXI HP (let's say, AXI HPC0 FPD) in the PS-PL configuration of the Zynq Ultrascale+ MPSoC IP/zynq_ultra_ps_e_0. Double click the Zynq PS IP > PS-PL Configuration> Slave Interface > AXI HP > AXI HPC0 FPD and then OK. A new interface called S_AXI_HPC0_FPD will appear on the Zynq Ultrascale+ MPSoC IP block diagram in the IP Integrator canvas.
 
 ![image.png](DMA/DMA_MPSoCPSPL.png)
 
-We now need to connect M_AXI_S2MM and M_AXI_MM2S to S_AXI_LPD. This will have to be done using an AXI Interconnect*or AXI SmartConnect*. This can be done through connection automation twice. When you run the connection automation once, it will make only one connection - M_AXI_MM2S→ S_AXI_LPD (if M_AXI_MM2S is selected in Options > Master Interface in the connection automation dialog), and the corresponding m_axi_mm2s_aclk. The connection automation banner will still be there. Run connection automation again. This time, it will add an interconnect and make the M_AXI_S2MM→ S_AXI_LPD, as well as the m_axi_s2mm_aclk connection.
+We now need to connect M_AXI_S2MM and M_AXI_MM2S to S_AXI_HPC0_FPD. This will have to be done using an AXI Interconnect*or AXI SmartConnect*. This can be done through connection automation twice. When you run the connection automation once, it will make only one connection - M_AXI_MM2S→ S_AXI_HPC0_FPD (if M_AXI_MM2S is selected in Options > Master Interface in the connection automation dialog), and the corresponding m_axi_mm2s_aclk. The connection automation banner will still be there. Run connection automation again. This time, it will add an interconnect and make the M_AXI_S2MM→ S_AXI_HPC0_FPD, as well as the m_axi_s2mm_aclk connection.
 
 *Note: AXI Interconnect and AXI SmartConnect are functionally similar. The latter is newer and more optimized, though the connection automation does not always include it.
 
@@ -53,7 +56,7 @@ Overall, the connections should be as shown below, at least those relevant to AX
 
 Have a look at the Address Editor tab too. It should generally be fine as long the AXI (not AXIS - AXIS connections were done manually anyway and have no concept of addresses/memory map) connections are done via connection automation. If there were any manual modifications you made to AXI connections, appropriate manual modifications may be needed here.
 
-In particular, ensure that in which zynq_ultra_ps_e_0 is the master, all S_AXIs are given proper, non-conflicting addresses. Also, ensure that in the network where axi_dma_0 is the master, S_AXI_LPD with the slave segment LPD_DDR_LOW is included (i.e., not excluded) for both axi_dma_0/Data_MM2S as well as axi_dma_0/Data_S2MM. This is to ensure that the AXI DMA peripheral can read as well as write (respectively) the DDR memory.
+In particular, ensure that in which zynq_ultra_ps_e_0 is the master, all S_AXIs are given proper, non-conflicting addresses. Also, ensure that in the network where axi_dma_0 is the master, S_AXI_HPC0_FPD with the slave segment HPC0_DDR_LOW is included (i.e., not excluded) for both axi_dma_0/Data_MM2S as well as axi_dma_0/Data_S2MM. This is to ensure that the AXI DMA peripheral can read as well as write (respectively) the DDR memory.
 
 ![image.png](DMA/DMA_Address.png)
 

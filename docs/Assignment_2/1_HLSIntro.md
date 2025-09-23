@@ -3,6 +3,9 @@
 !!! success "Final"
     This assignment description is now complete. There could still be minor updates, which will be <span style="color: brown;">highlighted</span>. 
 
+!!! warning "Follow the Spirit"
+    Some screenshots may be taken on other versions of Vivado/Vitis or for other configurations. The instructions could also vary slightly depending on the exact design/configuration you follow - such as whether you have separate or combined designs with multiple coprocessors / interfacing method (DMA/FIFO). The spirit of the instructions remain the same. Understand the significance of each step rather than following it mechanically.
+
 ## Introduction to High-level synthesis
 
 High-level synthesis transforms C functions into hardware IPs.
