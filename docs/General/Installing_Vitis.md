@@ -42,11 +42,11 @@ Below are the steps to be followed to install **Xilinx Vitis 2025.1**. The inst
 
 ### Linux
 
-Vitis/Vivado works very well in RHEL (best-supported)/Fedora/Ubuntu. The instructions below are for Ubuntu.
+Vitis/Vivado works very well in RHEL (best-supported)/Fedora/Ubuntu. The instructions below are for Ubuntu. The official instructions can be found [here](https://docs.amd.com/r/en-US/ug1400-vitis-embedded/Installing-the-Vitis-Software-Platform).
 
 * You need a Xilinx/AMD account. If you don't, please create one.
 
-* XilinxAMD unified web installer for Linux is downloadable from Xilinx/AMD website (Google for it).
+* Xilinx/AMD unified web installer for Linux is downloadable from Xilinx/AMD website (Google for it).
 
 * cd to download directory
 
@@ -54,11 +54,11 @@ Vitis/Vivado works very well in RHEL (best-supported)/Fedora/Ubuntu. The instruc
 
 * Select the options as detailed in the Windows section above and complete the installation.
 
-* A dialog box showing Tool installation completed will pop up, asking you to run the installLibs.sh under <install_dir>//Xilinx/2025.1/Vitis/scripts to install the necessary libraries, with sudo.
+* A dialog box showing Tool installation completed will pop up, asking you to run the installLibs.sh under `<install_dir>/2025.1/Vitis/scripts` to install the necessary libraries, with sudo. Please oblige by changing to the above directory and running `sudo bash installLibs.sh`
 
-* To install cable drivers to access the board, run `sudo <install_dir>/Xilinx/2025.1/Vitis/data/xicom/cable_drivers/lin64/install_script/install_drivers/install_drivers.sh`
+* To install cable drivers to access the board, go to `<install_dir>/2025.1/Vitis/data/xicom/cable_drivers/lin64/install_script/install_drivers/` and run `./install_drivers`.
 
-* If the desktop icon does not work or if you are ssh-ing into a remote Linux system with x forwarding, in command line : `source <install_dir>//Xilinx/2025.1/Vivado/settings64.sh`, followed by the command `vivado`.
+* If the desktop icon does not work or if you are ssh-ing into a remote Linux system with x forwarding, in command line : `source <install_dir>/2025.1/Vivado/settings64.sh`, followed by the command `vivado`.
 
 * If starting from GUI fails, run from command line to identify the missing library and install it.
 
