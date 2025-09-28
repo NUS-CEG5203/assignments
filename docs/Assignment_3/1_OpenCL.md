@@ -57,7 +57,11 @@ You can use some form of a time library for time measurement. For Linux, it will
 
 ### Printing Kernel Program Build Log
 
-If you experience issues such as getting a result of 0.000 for the example code covered in the lecture (likely a result of your device OpenCL code compilation failure, which could happen on Intel integrated GPUs), you may need to use 'float' instead of 'double'. This is because the Intel integrated GPUs don't support the double precision floating point extension cl_khr_fp64. You can see the supported extensions via clinfo - if you have only one GPU, see if clinfo | grep cl_khr_fp64 gives some output. Such issues can be debugged by inspecting the kernel program build log - you can see the sample program which does that.
+If you experience issues related to your device OpenCL code compilation failure, you should inspect the kernel build log.
+
+The most likely reason is that the .cl isn't accessible by the main program at runtime.
+
+Another reason is the use of `double` - OpenCL extension `cl_khr_fp64` - is not supported by Intel integrated GPUs. You can see the supported extensions via clinfo - if you have only one GPU, see if clinfo | grep cl_khr_fp64 gives some output. Such issues can be debugged by inspecting the kernel program build log.
 
 ### Setting OpenCL Version
 

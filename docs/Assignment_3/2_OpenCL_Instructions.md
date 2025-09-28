@@ -2,7 +2,7 @@
 
 It is generally easier to run OpenCL in a Linux distribution. Instructions for Windows are also provided, but expect some rough edges.
 
-Make sure your graphics drivers are up-to-date.
+Make sure your graphics drivers are up-to-date and supports OpenCL. The instructions assume an Intel GPU. For Nvidia and AMD GPUs, there are some differences in instructions, which you can figure out with a bit of Googling.
 
 Use path names without special characters or spaces for all paths.
 
