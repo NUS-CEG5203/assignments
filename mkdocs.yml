@@ -4,6 +4,10 @@ theme:
   name: material
   features:
     - content.tooltips
+  font:
+    text: Merriweather
+  palette:
+    scheme: nus
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
@@ -18,6 +22,8 @@ markdown_extensions:
   - admonition
   - attr_list
   - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
 extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
