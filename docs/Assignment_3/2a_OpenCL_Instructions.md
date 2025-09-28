@@ -52,11 +52,11 @@ Use path names without special characters or spaces for all paths.
   Before building your program for the first time, it may be a good idea to refresh the linker cache via `sudo ldconfig`.
 
 
-## Comiling and Running from Command Line
+## Compiling and Running from Command Line
 
 Create a .c file with the example program covered in the lecture (which can also be found here). You can use any text editor for this purpose.
 
-Assuming your filename is main.c, build the program via `gcc main.c -o main.out -lOpenCL -lm`, after doing a `cd` to the folder/directory with the source file.
+Assuming your filename is main.c, build the program via `gcc main.cpp -lOpenCL -o main.out`, after doing a `cd` to the folder/directory with the source file.
 
 You can now run it by entering the command `/main.out` and it should print the result 2-10 later. If it works, you are good to go!
 
@@ -84,3 +84,5 @@ Ctrl+Shift+B to build the project.
 F5 to run it with debugging.
 
 To run normally, go to the terminal of VS Code, ensure that you are in the folder with the main.exe / main.out (`cd` to there if need be), and execute `.\main.exe` or `./main.out`.
+
+`-lm` should be added to command line or VS Code `tasks.json` if you include `math.h`
