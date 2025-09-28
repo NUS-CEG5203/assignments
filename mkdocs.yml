@@ -8,6 +8,8 @@ theme:
     text: Merriweather
   palette:
     scheme: nus
+extra_css:
+  - stylesheets/extra.css
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
@@ -19,9 +21,12 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - abbr
-  - admonition
   - attr_list
-  - pymdownx.snippets
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.blocks.caption
+  - md_in_html
   - pymdownx.tabbed:
       alternate_style: true
 extra_javascript:
