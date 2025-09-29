@@ -1,6 +1,6 @@
 # OpenCL Configuration
 
-It is generally easier to run OpenCL in a Linux distribution. Instructions for Windows are also provided, but expect some rough edges.
+It is generally easier to run OpenCL in a Linux distribution. Instructions for Windows are also provided, but expect some rough edges. Treat the instructions as a guideline rather something comprehensive, and figure out on your own how to solve issues, if any.
 
 Make sure your graphics drivers are up-to-date and supports OpenCL. The instructions assume an Intel GPU. For Nvidia and AMD GPUs, there are some differences in instructions, which you can figure out with a bit of Googling.
 
@@ -9,6 +9,7 @@ Use path names without special characters or spaces for all paths.
 ## Installing Build Tools and OpenCL
 
 === "Windows"
+
   *Install MSYS2*: Install [MSYS2](https://github.com/msys2/msys2-installer/releases/download/2025-08-30/msys2-x86_64-20250830.exe). This provides a minimal Linux-like setup for Windows.
 
   Run MSYS2. It takes a few seconds to open.
@@ -16,8 +17,11 @@ Use path names without special characters or spaces for all paths.
   *Install the compiler toolchain*: Via the MSYS2 command line, run the following.
 
   `pacman -Syu` to update the package manager.
+
   and then
-  `pacman -S mingw-w64-ucrt-x86_64-gcc` to install the GCC compiler
+
+  `pacman -S mingw-w64-ucrt-x86_64-gcc` to install the GCC compiler.
+
   `pacman -S mingw-w64-ucrt-x86_64-gcd` to install the GNU debugger.
 
   By default, the toolchain is installed to C:\msys64\ucrt64. If you want to know the location, you can find out by typing `which g++`.
@@ -32,6 +36,7 @@ Use path names without special characters or spaces for all paths.
   Unzip to `C:\OpenCLSDK` such that `C:\OpenCLSDK\include` (contains CL/cl.h etc.) and `C:\OpenCLSDK\bin`(contains OpenCL.lib) exists. If you choose another path, modify command line build options and/or edit the VS Code config files accordingly.
 
 === "Linux"
+
   `sudo apt update && sudo apt upgrade` (refresh package list and update packages). You will be prompted for your Ubuntu password, and to confirm by pressing `y`.
 
   `sudo apt install build-essential clinfo intel-opencl-icd ocl-icd-opencl-dev gdb` (assuming Intel GPU. For Nvidia / AMD, appropriate drivers may need to be installed).
@@ -53,7 +58,7 @@ Install the following extensions
 * CMake Tools (optional)
 * OpenCL (optional, allows syntax highlighting of .cl files, has a built-in `clinfo` tool, etc.)
 
-You can use the following workspace. [Windows](../code_templates/Assignment_3/Asst3_OpenCL_Win.zip) and [Linux](../code_templates/Assignment_3/Asst3_OpenCL_Lin.zip) versions are largely similar. Make appropriate changes to the paths in the .json files if necessary.
+You can use the following workspace. [Windows](../code_templates/Assignment_3/Asst3_OpenCL_Win.zip) and [Linux](../code_templates/Assignment_3/Asst3_OpenCL_Lin.zip) versions are largely similar. Make appropriate changes to the paths in the .json files if necessary. The source file is slightly enhanced from the one explained in lecture notes. This file has enhanced debugging options, as well as time measurement-related functions.
 
 Build the project via Ctrl+Shift+B. This will create the executable `main.out` (Linux) or `main.exe` (Windows).
 
