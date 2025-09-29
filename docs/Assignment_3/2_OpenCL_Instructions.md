@@ -13,7 +13,7 @@ Use path names without special characters or spaces for all paths.
 
   Run MSYS2. It takes a few seconds to open.
 
-  *Install the compiler toolchaing*: Via the MSYS2 command line, run the following.
+  *Install the compiler toolchain*: Via the MSYS2 command line, run the following.
 
   `pacman -Syu` to update the package manager.
   and then
@@ -32,13 +32,11 @@ Use path names without special characters or spaces for all paths.
   Unzip to `C:\OpenCLSDK` such that `C:\OpenCLSDK\include` (contains CL/cl.h etc.) and `C:\OpenCLSDK\bin`(contains OpenCL.lib) exists. If you choose another path, modify command line build options and/or edit the VS Code config files accordingly.
 
 === "Linux"
-  `sudo apt update` (refresh package list). You will be prompted for your Ubuntu password.
-
-  `sudo apt upgrade` (update packages). If it prompts you, enter y.
+  `sudo apt update && sudo apt upgrade` (refresh package list and update packages). You will be prompted for your Ubuntu password, and to confirm by pressing `y`.
 
   `sudo apt install build-essential clinfo intel-opencl-icd ocl-icd-opencl-dev gdb` (assuming Intel GPU. For Nvidia / AMD, appropriate drivers may need to be installed).
   
-  Depending on the system configuration, other dependencies may also need to be installed. `sudo apt -f install` can sometimes help install these additional dependencies.
+  Depending on the system configuration, other dependencies may also need to be installed. `sudo apt -f install` can usually help install these additional dependencies.
 
   Run `clinfo` from the terminal and see if lists platforms and devices. If it lists platforms and devices, you are close!
 
@@ -53,7 +51,7 @@ Install the following extensions
 * C/C++
 * C/C++ Extension Pack
 * CMake Tools (optional)
-* OpenCL (optional, allows syntax highlighting of .cl files, has a built-in clinfo tool, etc.)
+* OpenCL (optional, allows syntax highlighting of .cl files, has a built-in `clinfo` tool, etc.)
 
 You can use the following workspace. [Windows](../code_templates/Assignment_3/Asst3_OpenCL_Win.zip) and [Linux](../code_templates/Assignment_3/Asst3_OpenCL_Lin.zip) versions are largely similar. Make appropriate changes to the paths in the .json files if necessary.
 
@@ -69,10 +67,20 @@ Running in Windows is less stable, there is a higher likelihood of the runtime c
 
 ## Compiling and Running from Command Line
 
-This is optional, but can be faster than using an IDE. You can use the main.cpp from the archives above.
+This is optional, but can be faster than using an IDE. You can use the `main.cpp` from the archives above.
 
-Build the program via `g++ main.cpp -lOpenCL -o main.out` (Linux) / `g++ -g main.cpp -IC:/OpenCLSDK/include -LC:/OpenCLSDK/lib -lOpenCL -o main.exe` (Windows), after doing a `cd` to the folder/directory with the source file. This will create the executable `main.out` or `main.exe`.
+Build the program via
+
+=== "Linux"
+
+`g++ main.cpp -lOpenCL -o main.out`
+
+=== "Windows"
+
+`g++ -g main.cpp -IC:/OpenCLSDK/include -LC:/OpenCLSDK/lib -lOpenCL -o main.exe`
+
+after doing a `cd` to the folder/directory with the source file. This will create the executable `main.out` or `main.exe`.
 
 Copy `kernel.cl` from the archives above to be in the same folder as the executable `main.out` or `main.exe`, as it is read and compiled at runtime. You can now run the executable by entering the command `/main.out` or `.\main.exe`. It should print the result 2-10 seconds later. If it works, you are good to go!
 
-If using gcc instead of g++ and if you include `math.h`, `-lm` should be added to command line or VS Code `tasks.json`.
+If using `gcc` instead of `g++` and if you include `math.h`, `-lm` should be added to command line or VS Code `tasks.json`.
