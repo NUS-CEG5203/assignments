@@ -2,9 +2,6 @@
 
 !!! danger "Work in Progress"
     This assignment description is being updated. Information can change substantially.
-
-!!! warning "Follow the Spirit"
-    The instructions should be taken as a rough guideline rather than a very comprehensive manual.
     
 
 This assignment involves

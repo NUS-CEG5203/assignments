@@ -1,6 +1,9 @@
 # OpenCL Configuration
 
-It is generally easier to run OpenCL in a Linux distribution. Instructions for Windows are also provided, but expect some rough edges. Treat the instructions as a guideline rather something comprehensive, and figure out on your own how to solve issues, if any.
+!!! warning "Follow the Spirit"
+    The instructions should be treated as a guideline rather than a very comprehensive manual. Figure out on your own how to solve issues, if any.
+
+It is generally easier to run OpenCL in a Linux distribution. Instructions for Windows are also provided, but expect some rough edges.
 
 Make sure your graphics drivers are up-to-date and supports OpenCL. The instructions assume an Intel GPU. For Nvidia and AMD GPUs, there are some differences in instructions, which you can figure out with a bit of Googling.
 
