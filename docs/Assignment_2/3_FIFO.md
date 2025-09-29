@@ -1,6 +1,6 @@
 # Coprocessor Integration using AXI Stream FIFO
 
-You can read more about AXI Stream FIFO at <https://www.xilinx.com/support/documentation/ip_documentation/axi_fifo_mm_s/v4_1/pg080-axi-fifo-mm-s.pdf> (please do!)
+You can read more about [AXI Stream FIFO](https://docs.amd.com/v/u/4.1-English/pg080-axi-fifo-mm-s) on AMD website (please do!).
 
 When we use AXI Stream FIFO as the bridge, the processor reads the operands from the memory (RAM) and writes them to the transmit FIFO in AXI Stream FIFO peripheral via AXI (not AXI Stream), which in turn passes it to the coprocessor via AXI Stream. The result returned by the coprocessor gets deposited into a receive FIFO in AXI Stream FIFO peripheral, from which the processor reads it via AXI (not AXI Stream) and writes it to the memory (RAM).
 
