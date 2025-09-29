@@ -4,7 +4,7 @@ In this page, you will learn to integrate the AXIS coprocessor using AXI Direct 
 
 When using AXI DMA, the processor only supplies (via AXI Lite, not AXI Stream) the starting address and the size/amount of data to be transferred from the memory to the coprocessor (or vice versa), and it is the DMA controller that reads memory directly and passes it to the coprocessor via AXI Stream (or vice versa). The processor is not involved in the transfer of data directly, i.e., it does not do repeated load-store (LDR/lw-STR/sw) to do bulk data transfer.
 
-Here, we will be using the Xilinx AXI DMA IP as the module that connects the coprocessor to the rest of the system. You can find the specification of AXI DMA here: <http://www.xilinx.com/support/documentation/ip_documentation/axi_dma/v7_1/pg021_axi_dma.pdf>
+Here, we will be using the Xilinx AXI DMA IP as the module that connects the coprocessor to the rest of the system. You can find the specification of [AXI DMA](https://users.ece.utexas.edu/~mcdermot/arch/articles/Zynq/pg021_axi_dma.pdf) on the AMD website.
 
 You can start with a new project or from the existing project. As most of you would be reaching this step from an existing project, which would have the coprocessor connected using AXI Stream FIFO. In the future, if you are starting a new project and plan to use AXI DMA, you do not need AXI Stream FIFO in your design at all. It is also fine to delete AXI Stream FIFO from the project (instructions later), which can save some hardware and synthesis time. 
 
