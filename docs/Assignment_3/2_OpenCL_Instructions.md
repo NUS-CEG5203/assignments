@@ -57,7 +57,7 @@ Install the following extensions
 
 You can use the following workspace. [Windows](../code_templates/Assignment_3/Asst3_OpenCL_Win.zip) and [Linux](../code_templates/Assignment_3/Asst3_OpenCL_Lin.zip) versions are largely similar. Make appropriate changes to the paths in the .json files if necessary.
 
-Build the project via Ctrl+Shift+B. This will create the executable `main.out` or `main.exe`.
+Build the project via Ctrl+Shift+B. This will create the executable `main.out` (Linux) or `main.exe` (Windows).
 
 Ensure that `kernel.cl` is in the same folder as the executable `main.out` or `main.exe`
 
@@ -73,6 +73,6 @@ This is optional, but can be faster than using an IDE. You can use the main.cpp 
 
 Build the program via `g++ main.cpp -lOpenCL -o main.out` (Linux) / `g++ -g main.cpp -IC:/OpenCLSDK/include -LC:/OpenCLSDK/lib -lOpenCL -o main.exe` (Windows), after doing a `cd` to the folder/directory with the source file. This will create the executable `main.out` or `main.exe`.
 
-Copy `kernel.cl` from the archives above to be in the same folder as the executable `main.out` or `main.exe`, as it is read at runtime. You can now run the executable by entering the command `/main.out` or `.\main.exe`. It should print the result 2-10 seconds later. If it works, you are good to go!
+Copy `kernel.cl` from the archives above to be in the same folder as the executable `main.out` or `main.exe`, as it is read and compiled at runtime. You can now run the executable by entering the command `/main.out` or `.\main.exe`. It should print the result 2-10 seconds later. If it works, you are good to go!
 
 If using gcc instead of g++ and if you include `math.h`, `-lm` should be added to command line or VS Code `tasks.json`.
