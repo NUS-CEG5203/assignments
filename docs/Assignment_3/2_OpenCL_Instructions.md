@@ -11,6 +11,28 @@ Use path names without special characters or spaces for all paths.
 
 ## Installing Build Tools and OpenCL
 
+=== "Ubuntu Linux"
+
+    Refresh package list and update packages. `sudo apt update && sudo apt upgrade`. You will be prompted for your Ubuntu password, and to confirm by pressing `y`.
+
+    Install build tools, OpenCL libraries, and loader. `sudo apt install build-essential clinfo intel-opencl-icd ocl-icd-opencl-dev gdb` (assuming Intel GPU. For Nvidia / AMD, appropriate drivers may need to be installed).
+    
+    Depending on the system configuration, other dependencies may also need to be installed. `sudo apt -f install` can usually help install these additional dependencies.
+
+    Before building your program for the first time, it may be a good idea to refresh the linker cache via `sudo ldconfig`.
+
+    Run `clinfo` from the terminal and see if lists platforms and devices. If it lists platforms and devices, you are close! 
+    
+    If it shows number of platforms as 0, you likely have a new (e.g, Raptor Lake U) processor. You can follow the guidelines on [Intel website](https://dgpu-docs.intel.com/driver/client/overview.html#ubuntu-latest), reproduced below for convenience.
+
+    Install the package for managing software repositories (likely already installed). `sudo apt-get install -y software-properties-common`.
+
+    Add the intel-graphics PPA. `sudo add-apt-repository -y ppa:kobuk-team/intel-graphics`.
+
+    Install Intel compute related packages. `sudo apt-get install -y libze-intel-gpu1 libze1 intel-metrics-discovery intel-gsc`
+
+    Try `clinfo` again and it should show platforms and devices.
+
 === "Windows"
 
     *Install MSYS2*: Install [MSYS2](https://github.com/msys2/msys2-installer/releases/download/2025-08-30/msys2-x86_64-20250830.exe). This provides a minimal Linux-like setup for Windows.
@@ -37,19 +59,6 @@ Use path names without special characters or spaces for all paths.
     *Install OpenCL SDK*: Download and Unzip [Khronos OpenCL SDK](https://github.com/KhronosGroup/OpenCL-SDK/releases/download/v2025.07.23/OpenCL-SDK-v2025.07.23-Win-x64.zip) (a newer release, if available, should be fine too).
 
     Unzip to `C:\OpenCLSDK` such that `C:\OpenCLSDK\include` (contains CL/cl.h etc.) and `C:\OpenCLSDK\bin`(contains OpenCL.lib) exists. If you choose another path, modify command line build options and/or edit the VS Code config files accordingly.
-
-=== "Linux"
-
-    `sudo apt update && sudo apt upgrade` (refresh package list and update packages). You will be prompted for your Ubuntu password, and to confirm by pressing `y`.
-
-
-    `sudo apt install build-essential clinfo intel-opencl-icd ocl-icd-opencl-dev gdb` (assuming Intel GPU. For Nvidia / AMD, appropriate drivers may need to be installed).
-    
-    Depending on the system configuration, other dependencies may also need to be installed. `sudo apt -f install` can usually help install these additional dependencies.
-
-    Run `clinfo` from the terminal and see if lists platforms and devices. If it lists platforms and devices, you are close!
-
-    Before building your program for the first time, it may be a good idea to refresh the linker cache via `sudo ldconfig`.
 
 ## Configuring Visual Studio Code IDE
 
