@@ -4,9 +4,9 @@ In this page, you will learn to integrate the AXIS coprocessor using AXI Direct 
 
 When using AXI DMA, the processor only supplies (via AXI Lite, not AXI Stream) the starting address and the size/amount of data to be transferred from the memory to the coprocessor (or vice versa), and it is the DMA controller that reads memory directly and passes it to the coprocessor via AXI Stream (or vice versa). The processor is not involved in the transfer of data directly, i.e., it does not do repeated load-store (LDR/lw-STR/sw) to do bulk data transfer.
 
-Here, we will be using the Xilinx AXI DMA IP as the module that connects the coprocessor to the rest of the system. You can find the specification of [AXI DMA](https://users.ece.utexas.edu/~mcdermot/arch/articles/Zynq/pg021_axi_dma.pdf) on the AMD website.
+Here, we will be using the Xilinx AXI DMA IP as the module that connects the coprocessor to the rest of the system. You can find the specification of [AXI DMA here](https://docs.amd.com/r/en-US/pg021_axi_dma).
 
-You can start with a new project or from the existing project. As most of you would be reaching this step from an existing project, which would have the coprocessor connected using AXI Stream FIFO. In the future, if you are starting a new project and plan to use AXI DMA, you do not need AXI Stream FIFO in your design at all. It is also fine to delete AXI Stream FIFO from the project (instructions later), which can save some hardware and synthesis time. 
+You can start with a new project or from an existing project. As most of you would be reaching this step from an existing project, which would have the coprocessor connected using AXI Stream FIFO. In the future, if you are starting a new project and plan to use AXI DMA, you do not need AXI Stream FIFO in your design at all. It is also fine to delete AXI Stream FIFO from the project (instructions later), which can save some hardware and synthesis time. 
 
 It is perfectly fine to retain AXI Stream FIFO + coprocessor, and use another instance of the coprocessor for DMA, if you are doing a combined design, i.e., a single design with FIFO-connected coprocessor + one or more DMA-connected coprocessors.
 
@@ -68,7 +68,7 @@ Export hardware, including bitstream.
 
 Open Vitis > create a new workspace (using the previous one is also ok) > create a new platform project using the new .xsa file (upgrading the previous one is ok too), > create an application project.
 
-The application project (say, Hello World) main file contents should be replaced by test_dma_myip_v1_0.c to test the coprocessor for adding numbers. Note the close parallel it has with tb_myip_v1_0.v/vhd and test_fifo_myip_v1_0.c. You can make appropriate changes to this file to deal with different input and output sizes if your coprocessor functionality is different.
+The application project (say, Hello World) main file contents should be replaced by [test_dma_myip_v1_0.c](../../code_templates/Assignment_2/test_dma_myip_v1_0.c) to test the coprocessor for adding numbers. Note the close parallel it has with [test_fifo_myip_v1_0.c](../../code_templates/Assignment_2/test_fifo_myip_v1_0.c). You can make appropriate changes to this file to deal with different input and output sizes if your coprocessor functionality is different.
 
 Now, create a run configuration, open the serial console program (e.g., RealTerm), and run.
 
