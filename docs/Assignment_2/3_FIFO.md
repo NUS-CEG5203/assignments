@@ -38,11 +38,11 @@ You can now save the block design (Ctrl+S) and generate bitstream.
 
 The rest of it is similar to Assignment 1.
 
-You need to export hardware including bitstream.
+You need to export hardware, including bitstream.
 
 Open Vitis > create a new workspace (using the previous one is also ok) > create a new platform project using the new .xsa file (upgrading the previous one is ok too), > create an application project.
 
-The application project (say, Hello World) main file contents should be replaced by test_fifo_myip_v1_0.c to test the coprocessor for adding numbers. Note the close parallel it has with tb_myip_v1_0.v/vhd. You can make appropriate changes to this file to deal with different input and output sizes if your coprocessor functionality is different.
+The application project (say, Hello World) main file contents should be replaced by [test_fifo_myip_v1_0.c](../../code_templates/Assignment_2/test_fifo_myip_v1_0.c) to test the coprocessor for adding numbers. You can make appropriate changes to this file to deal with different input and output sizes if your coprocessor functionality is different.
 
 Now, create a run configuration, open the serial console program (e.g., RealTerm), and run.
 
