@@ -54,7 +54,7 @@ Vitis/Vivado works very well in RHEL (best-supported)/Fedora/Ubuntu. The instruc
 
 * Select the options as detailed in the Windows section above and complete the installation.
 
-* A dialog box showing Tool installation completed will pop up, asking you to run the installLibs.sh under `<install_dir>/2025.1/Vitis/scripts` to install the necessary libraries, with sudo. Please oblige by changing to the above directory and running `sudo bash installLibs.sh`. Also do `sudo apt install build-essential` to install gcc and other tools that Vitis HLS depends on, but isn't installed by the installLibs.sh script.
+* A dialog box showing Tool installation completed will pop up, asking you to run the installLibs.sh under `<install_dir>/2025.1/Vitis/scripts` to install the necessary libraries, with sudo. Please oblige by changing to the above directory and running `sudo bash installLibs.sh`. Also do `sudo apt install build-essential` to install gcc and other tools that Vitis HLS depends on, but aren't installed by the installLibs.sh script (!).
 
 * To install cable drivers to access the board, go to `<install_dir>/2025.1/Vitis/data/xicom/cable_drivers/lin64/install_script/install_drivers/` and run `./install_drivers`.
 
