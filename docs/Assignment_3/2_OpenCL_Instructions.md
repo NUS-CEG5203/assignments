@@ -9,6 +9,8 @@ Make sure your graphics drivers are up-to-date and supports OpenCL. The instruct
 
 Use path names without special characters or spaces for all paths.
 
+The template/data files are [here](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_3/code_templates)
+
 ## Installing Build Tools and OpenCL
 
 === "Ubuntu Linux"
@@ -71,7 +73,7 @@ Install the following extensions
 * CMake Tools (optional)
 * OpenCL (optional, allows syntax highlighting of .cl files, has a built-in `clinfo` tool, etc.)
 
-You can use the following workspace. [Windows](../code_templates/Assignment_3/Asst3_OpenCL_Win.zip) and [Linux](../code_templates/Assignment_3/Asst3_OpenCL_Lin.zip) versions are largely similar. Make appropriate changes to the paths in the .json files if necessary. The source file is slightly enhanced from the one explained in lecture notes. This file has enhanced debugging options, as well as time measurement-related functions.
+You can use the following workspace. [Windows](code_templates/Asst3_OpenCL_Win.zip) and [Linux](code_templates/Asst3_OpenCL_Lin.zip) versions have identical source codes, but has minor changes in path configurations, output extension, etc. Make appropriate changes to the paths in the .json files if necessary. The source file is slightly enhanced from the one explained in lecture notes. This file has enhanced debugging options, as well as time measurement-related functions.
 
 Build the project via Ctrl+Shift+B. This will create the executable `main.out` (Linux) or `main.exe` (Windows).
 

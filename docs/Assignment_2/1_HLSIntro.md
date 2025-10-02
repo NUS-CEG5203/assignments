@@ -31,6 +31,8 @@ For now, we will start with Stream-based which is perhaps the easiest to get sta
 
 ## Assignment 2
 
+The template/data files are [here](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_2/code_templates)
+
 The assignment involves
 
 1) [Creating a stream-based coprocessor aka accelerator do matrix multiplication (RES=A*B/256) using HLS](2_HLSFLow.md) and integrating it into the system. The matrix multiplication problem is exactly the same as in Assignment 1 (the part of your program to send the matrices **A** and **B** from PC can be commented out and the matrices can be hard-coded in your program for convenience), just that the multiplication should now be offloaded to the coprocessor in addition to doing it purely in software. 

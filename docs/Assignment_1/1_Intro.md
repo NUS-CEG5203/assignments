@@ -19,7 +19,7 @@ This manual contains step-by-step instructions on how to create a hardware platf
 
 Assignment #1 is a homework exercise and carries 10 marks.
 
-All the required files are [here](https://github.com/NUS-CEG5203/assignments/tree/main/docs%2Fcode_templates%2FAssignment_1)
+The template/data files are [here](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_1/code_templates)
 
 The matrix **A** is a 64 x 8 matrix given in A.csv (CSV = comma-separated values). The elements of A are in the corresponding ASCII form in A.csv - this is essentially a text file and can be opened using a text editor\*. You can also open it with Excel, which will show it as a table. 
 

@@ -4,15 +4,17 @@
     This assignment description is being updated. Information can change substantially.
     
 
+In this assignment, we explore OpenCL. We start with configuring the computer (PC) and IDE to run OpenCL code. [Instructions](2_OpenCL_Instructions.md) for Intel GPUs in Windows and Linux are provided.
+
+## Assignment 3
+
 This assignment involves
 
-1) Configuring your computer (PC) and IDE to run OpenCL code. Instructions for Intel GPUs in Windows and Linux are provided.
+1) Accelerating the same computational problem as what you did in the previous 2 assignments - to be able to multiply two matrices A and B and to produce the result RES = A*B/256.
 
-2) The computational problem is the same as what you did in the previous 2 assignments - to be able to multiply two matrices A and B and to produce the result RES = A*B/256.
+2) You must also report the time taken for multiplication in pure software (run without hardware acceleration / OpenCL) as well as via OpenCL code. If you have both onboard graphics (e.g. Intel) as well as a discrete GPU, it would be interesting to compare the performance of the two vs pure software. Note: Since the size of the problem you are dealing with is small, the acceleration you obtain won't be indicative. Also, operating system context switches make performance evaluation hard to do deterministically. It is also affected by caching, and generally, it is faster the second time you run it.
 
-3) You must also report the time taken for multiplication in pure software (run without hardware acceleration / OpenCL) as well as via OpenCL code. If you have both onboard graphics (e.g. Intel) as well as a discrete GPU, it would be interesting to compare the performance of the two vs pure software. Note: Since the size of the problem you are dealing with is small, the acceleration you obtain won't be indicative. Also, operating system context switches make performance evaluation hard to do deterministically. It is also affected by caching, and generally, it is faster the second time you run it.
-
-4) Implement OpenCL-based acceleration on Kria board? >> May or may not be an eventual requirement. Still a WIP.
+3) Implement OpenCL-based acceleration and/or Pynq on Kria board? May or may not be an eventual requirement depending on how troublesome it is without an ethernet connection and how buggy it is in 2025.1. Still a WIP.
 
 ## Submission Info
 
