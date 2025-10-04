@@ -31,7 +31,7 @@ For now, we will start with Stream-based which is perhaps the easiest to get sta
 
 ## Assignment 2
 
-The template/data files are [here](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_2/code_templates)
+The template/data files are [here](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_2/code_templates).
 
 The assignment involves
 

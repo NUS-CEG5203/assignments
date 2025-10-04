@@ -1,0 +1,94 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-g",
+        "${file}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build"
+      },
+
+      // OS-specific overrides
+      "linux": {
+        "args": [
+          "-g",
+          "${file}",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}.out"
+        ]
+      },
+      "windows": {
+        "args": [
+          "-g",
+          "${file}",
+          "-o",
+          "${fileDirname}${fileBasenameNoExtension}.exe"
+        ]
+      }
+    },
+
+    {
+      "type": "cppbuild",
+      "label": "C/C++: g++ build active file (Linux)",
+      "command": "g++",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "-lOpenCL",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.out"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "Linux g++ build task with OpenCL linkage"
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: g++ build active file (Windows)",
+      "command": "g++",
+      "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        //"-I${env:OPENCL_SDK_DIR}/include",
+        //"-L${env:OPENCL_SDK_DIR}/lib",
+        "-IC:/OpenCLSDK/include",
+        "-LC:/OpenCLSDK/lib",
+        "-lOpenCL",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "Windows g++ build task with OpenCL linkage"
+    }
+  ]
+}

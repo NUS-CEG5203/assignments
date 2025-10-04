@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "defines": [],
+      "compilerPath": "/usr/bin/g++",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "linux-gcc-x64"
+    },
+    {
+      "name": "Windows",
+      "includePath": [
+        "${workspaceFolder}/**",
+        // If you set an env var OPENCL_SDK_DIR, this will be used:
+        "${env:OPENCL_SDK_DIR}/include",
+        // Fallback to a hard-coded path if the env var isn't set:
+        "C:/OpenCLSDK/include"
+      ],
+      "defines": [],
+      "compilerPath": "g++",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-x64",
+      "windowsSdkVersion": "10.0.19041.0"
+    }
+  ],
+  "version": 4
+}

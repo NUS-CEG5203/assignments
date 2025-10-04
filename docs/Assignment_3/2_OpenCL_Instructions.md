@@ -9,7 +9,7 @@ Make sure your graphics drivers are up-to-date and supports OpenCL. The instruct
 
 Use path names without special characters or spaces for all paths.
 
-The template/data files are [here](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_3/code_templates)
+The template/data files are [here](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_3/code_templates).
 
 ## Installing Build Tools and OpenCL
 
@@ -73,7 +73,7 @@ Install the following extensions
 * CMake Tools (optional)
 * OpenCL (optional, allows syntax highlighting of .cl files, has a built-in `clinfo` tool, etc.)
 
-You can use the following workspace. [Windows](code_templates/Asst3_OpenCL_Win.zip) and [Linux](code_templates/Asst3_OpenCL_Lin.zip) versions have identical source codes, but has minor changes in path configurations, output extension, etc. Make appropriate changes to the paths in the .json files if necessary. The source file is slightly enhanced from the one explained in lecture notes. This file has enhanced debugging options, as well as time measurement-related functions.
+You can use the folder/workspace from [here](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/Asst3_OpenCL_PC). Include the complete folder, including the .vscode subfolder with the .json files that has various settings. Make appropriate changes to the paths in the .json files if necessary. The source file is slightly enhanced from the one explained in lecture notes. This file has enhanced debugging options, as well as time measurement-related functions.
 
 Build the project via Ctrl+Shift+B. This will create the executable `main.out` (Linux) or `main.exe` (Windows).
 
@@ -104,3 +104,25 @@ after doing a `cd` to the folder/directory with the source file. This will crea
 Copy `kernel.cl` from the archives above to be in the same folder as the executable `main.out` or `main.exe`, as it is read and compiled at runtime. You can now run the executable by entering the command `/main.out` or `.\main.exe`. It should print the result 2-10 seconds later. If it works, you are good to go!
 
 If using `gcc` instead of `g++` and if you include `math.h`, `-lm` should be added to command line or VS Code `tasks.json`.
+
+## OpenCL on CPU using PoCL
+
+PoCL provides a portable OpenCL implementation that works with most CPUs and many GPUs. On CPUs, it can make use of all the cores/hardware threads. Installation in Windows is not straightforward, but possible.
+
+In Linux, you can install it via `sudo apt install pocl-opencl-icd`. 
+
+Make the following changes to the sample program to run in CPU via PoCL. No other changes needed for functionality (though you might want to change the printf statements as appropriate to reflect that you are using CPU, not GPU).
+
+``` c
+
+    // Get all platforms. 
+    cl_platform_id platform[2]; // Usually the GPU will show up as the first, CPU via PoCL second. Check this via `clinfo`.
+    status = clGetPlatformIDs(2, platform, NULL);
+    CHECK(status, "clGetPlatformIDs failed");
+
+    // Get CPU device - assuming it is the second platform
+    cl_device_id device;
+    status = clGetDeviceIDs(platform[1], CL_DEVICE_TYPE_CPU, 1, &device, NULL);
+    CHECK(status, "clGetDeviceIDs failed");
+    
+```
