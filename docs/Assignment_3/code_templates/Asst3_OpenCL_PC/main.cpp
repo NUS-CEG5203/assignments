@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define USE_XCLBIN  // Uncomment this line when using Xilinx FPGA with .xclbin file. 
+// #define USE_XCLBIN  // Uncomment this line when using Xilinx FPGA with .xclbin file. 
                         // Also ensure to set PLATFORM_INDEX appropriately below.
 
 #define CHECK(status, msg) \
