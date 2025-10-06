@@ -107,22 +107,10 @@ If using `gcc` instead of `g++` and if you include `math.h`, `-lm` should be add
 
 ## OpenCL on CPU using PoCL
 
-PoCL provides a portable OpenCL implementation that works with most CPUs and many GPUs. On CPUs, it can make use of all the cores/hardware threads. Installation in Windows is not straightforward, but possible.
+[Portable Computing Language (PoCL)](https://portablecl.org/) provides a portable OpenCL implementation that works with most CPUs and many GPUs. On CPUs, it can make use of all the cores/hardware threads. Installation in Windows is not straightforward, but possible.
 
 In Linux, you can install it via `sudo apt install pocl-opencl-icd`. 
 
-Make the following changes to the sample program to run in CPU via PoCL. No other changes needed for functionality (though you might want to change the printf statements as appropriate to reflect that you are using CPU, not GPU).
+Make slight adjustments to the code, by selecting the correct platform and device type.
 
-``` c
-
-    // Get all platforms. 
-    cl_platform_id platform[2]; // Usually the GPU will show up as the first, CPU via PoCL second. Check this via `clinfo`.
-    status = clGetPlatformIDs(2, platform, NULL);
-    CHECK(status, "clGetPlatformIDs failed");
-
-    // Get CPU device - assuming it is the second platform
-    cl_device_id device;
-    status = clGetDeviceIDs(platform[1], CL_DEVICE_TYPE_CPU, 1, &device, NULL);
-    CHECK(status, "clGetDeviceIDs failed");
-    
-```
+It works on the Kria board too if you boot Linux, and install PoCL.

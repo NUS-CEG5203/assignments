@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define USE_XCLBIN  // Uncomment this line when using Xilinx FPGA with .xclbin file. 
+                        // Also ensure to set PLATFORM_INDEX appropriately below.
+
 #define CHECK(status, msg) \
     if (status != CL_SUCCESS) { fprintf(stderr, "%s Error: %d\n", msg, status); return -1; }
 
@@ -25,19 +28,31 @@ int main() {
     }
     clock_t c2 = clock();
     double cpu_time = (double)(c2 - c1) / CLOCKS_PER_SEC;
-    printf("CPU time: %f seconds\n", cpu_time);
+    printf("CPU (pure C) time: %f seconds\n", cpu_time);
 
     // ---------------- GPU OpenCL ----------------
     cl_int status;
 
-    // Get first platform
-    cl_platform_id platform;
-    status = clGetPlatformIDs(1, &platform, NULL);
+    // Get all platforms. Assuming 2 here.
+    cl_platform_id platform[2]; // assuming a total of 2 platforms.
+    status = clGetPlatformIDs(2, platform, NULL);
     CHECK(status, "clGetPlatformIDs failed");
 
-    // Get first GPU device
+    // Get CPU/GPU/FPGA device
+    // Change CL_DEVICE_TYPE_SEL to CL_DEVICE_TYPE_CPU if using PoCL, CL_DEVICE_TYPE_GPU if using GPU.
+    // For PC, GPU is generally the first platform (PLATFORM_INDEX is 0), CPU (PoCL) second. 
+    // For Kria, CPU (PoCL, if installed) is generally the first platform (PLATFORM_INDEX is 0), FPGA second.
+    // **Important**: Check the order via `clinfo` and make selections appropropriately.
+    #ifdef USE_XCLBIN
+        #define CL_DEVICE_TYPE_SEL CL_DEVICE_TYPE_ACCELERATOR
+        #define PLATFORM_INDEX 1
+    #else
+        #define CL_DEVICE_TYPE_SEL CL_DEVICE_TYPE_GPU
+        #define PLATFORM_INDEX 0 
+    #endif
+    
     cl_device_id device;
-    status = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, NULL);
+    status = clGetDeviceIDs(platform[PLATFORM_INDEX], CL_DEVICE_TYPE_SEL, 1, &device, NULL); 
     CHECK(status, "clGetDeviceIDs failed");
 
     // Context + queue
@@ -47,20 +62,40 @@ int main() {
     cl_command_queue queue = clCreateCommandQueue(context, device, 0, &status);
     CHECK(status, "clCreateCommandQueue failed");
 
-    // Load kernel source
-    FILE* f = fopen("kernel.cl", "r");
-    if (!f) { fprintf(stderr, "Failed to open kernel.cl\n"); return -1; }
+    // Load kernel file
+    #ifdef USE_XCLBIN
+        const char* filename = "vadd.xclbin";
+        const char* mode = "rb";
+    #else
+        const char* filename = "kernel.cl";
+        const char* mode = "r";
+    #endif
+
+    FILE* f = fopen(filename, mode);
+    if (!f) { fprintf(stderr, "Failed to open %s\n", filename); return -1; }
     fseek(f, 0, SEEK_END);
     size_t src_size = ftell(f);
     rewind(f);
-    char* src = (char*)malloc(src_size + 1);
-    fread(src, 1, src_size, f);
-    src[src_size] = '\0';
+
+    #ifdef USE_XCLBIN
+        unsigned char* src = (unsigned char*)malloc(src_size);
+        fread(src, 1, src_size, f);
+    #else
+        char* src = (char*)malloc(src_size + 1);
+        fread(src, 1, src_size, f);
+        src[src_size] = '\0';
+    #endif
     fclose(f);
 
     // Build program
-    cl_program program = clCreateProgramWithSource(context, 1, (const char**)&src, NULL, &status);
-    CHECK(status, "clCreateProgramWithSource failed");
+    #ifdef USE_XCLBIN
+        cl_program program = clCreateProgramWithBinary(context, 1, &device, &src_size, 
+                                                    (const unsigned char**)&src, NULL, &status);
+        CHECK(status, "clCreateProgramWithBinary failed");
+    #else
+        cl_program program = clCreateProgramWithSource(context, 1, (const char**)&src, NULL, &status);
+        CHECK(status, "clCreateProgramWithSource failed");
+    #endif
 
     status = clBuildProgram(program, 1, &device, NULL, NULL, NULL);
     if (status != CL_SUCCESS) {
@@ -102,16 +137,16 @@ int main() {
     CHECK(status, "clEnqueueNDRangeKernel failed");
     clFinish(queue);
     c2 = clock();
-    double gpu_kernel_time = (double)(c2 - c1) / CLOCKS_PER_SEC;
+    double ocl_kernel_time = (double)(c2 - c1) / CLOCKS_PER_SEC;
 
     // Device → Host transfer
     clEnqueueReadBuffer(queue, bufC, CL_TRUE, 0, sizeof(float)*N, C, 0, NULL, NULL);
 
     clock_t tp_end = clock();
-    double gpu_pipeline_time = (double)(tp_end - tp_start) / CLOCKS_PER_SEC;
+    double ocl_pipeline_time = (double)(tp_end - tp_start) / CLOCKS_PER_SEC;
 
-    printf("GPU kernel-only time: %f seconds\n", gpu_kernel_time);
-    printf("GPU full pipeline time (incl. transfers): %f seconds\n", gpu_pipeline_time);
+    printf("OpenCL kernel-only time: %f seconds\n", ocl_kernel_time);
+    printf("OpenCL full pipeline time (incl. transfers): %f seconds\n", ocl_pipeline_time);
 
     // Cleanup
     clReleaseKernel(kernel);
