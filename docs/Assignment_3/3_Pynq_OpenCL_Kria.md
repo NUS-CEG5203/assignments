@@ -10,7 +10,7 @@ For this part, we will boot Ubuntu Linux on Kria board. A zipped SD card image i
 It is the default Ubuntu 22.04 image modified with the following:
 
 * Pynq installed. That requires numpy to be downgraded to 1.26.4, which may cause issues with other packages such as OpenCV. 
-<span style="color: brown;">Hence, in version 12_10_2025 of the image, OpenCV was downgraded to 4.10.0.84. Use this updated image if you want OpenCV in your project. Else, continue to use the image 10_10_2025.</span>
+<span style="color: brown;">Hence, in version 12_10_2025 of the image, OpenCV was downgraded to 4.10.0.84. If you had already downloaded image 10_10_2025 and do not want OpenCV in your project, continue to use the old image.</span>
 * PoCL installed.
 * Example programmes for [OpenCL](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/OpenCLExample) and [Pynq](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/PynqDMAExample) loaded.
 
