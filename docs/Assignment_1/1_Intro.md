@@ -58,7 +58,7 @@ Upload the (only those files you have created/modified, not the entire project f
 to Canvas by 11:59 PM, **15 Sep 2025**.
 The deadline is slightly negotiable for part-time students. You will also be required to do a demonstration (based on what you submitted at the point of the assignment deadline, not the version you may have improved after the deadline) to a teaching assistant sometime in the future - details to be announced.
 
-It should be as a single .zip archive, with the filename \<\Team number>\_<\Team member 1 Name>\_\<\Team member 2 Name>.zip
+It should be as a single .zip archive, with the filename <Team number\>\_<Team member 1 Name\>\_<Team member 2 Name\>\_1.zip
 
 Please DO NOT upload the whole project!
 

@@ -73,7 +73,7 @@ Install the following extensions
 * CMake Tools (optional)
 * OpenCL (optional, allows syntax highlighting of .cl files, has a built-in `clinfo` tool, etc.)
 
-You can use the folder/workspace from [here](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/Asst3_OpenCL_PC). Include the complete folder, including the .vscode subfolder with the .json files that has various settings. Make appropriate changes to the paths in the .json files if necessary. The source file is slightly enhanced from the one explained in lecture notes. This file has enhanced debugging options, as well as time measurement-related functions.
+You can use the folder/workspace from [here](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/OpenCLExample). Include the complete folder, including the .vscode subfolder with the .json files that has various settings. Make appropriate changes to the paths in the .json files if necessary. The source file is slightly enhanced from the one explained in lecture notes. This file has enhanced debugging options, as well as time measurement-related functions.
 
 Build the project via Ctrl+Shift+B. This will create the executable `main.out` (Linux) or `main.exe` (Windows).
 
@@ -113,4 +113,4 @@ In Linux, you can install it via `sudo apt install pocl-opencl-icd`.
 
 Make slight adjustments to the code, by selecting the correct platform and device type.
 
-It works on the Kria board too if you boot Linux, and install PoCL.
+It works on the Kria board too if you boot Linux, and install PoCL (Instructions in). More instructions in [this](3_Pynq_OpenCL_Kria.md) page.

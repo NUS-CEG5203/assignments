@@ -97,7 +97,7 @@ To summarise, we have 3 scenarios. We can have either a single project combining
 
 to the Canvas by 11:59 PM, 4 Oct 2025. The exact same files should be used for evaluation.
 
-It should be as a .zip archive, with the filename  \<\Team number>\_<\Team member 1 Name>\_\<\Team member 2 Name>_Asst2.zip.
+It should be as a .zip archive, with the filename  <Team number\>\_<Team member 1 Name\>\_<Team member 2 Name\>\_Asst2.zip.
 
 Please DO NOT upload the whole project!
 

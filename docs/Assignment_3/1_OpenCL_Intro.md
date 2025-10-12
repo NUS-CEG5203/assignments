@@ -1,20 +1,29 @@
 # OpenCL Introduction
 
-!!! danger "Work in Progress"
-    This assignment description is being updated. Information can change substantially.
+!!! success "Final"
+    This assignment description is now complete. There could still be minor updates, which will be <span style="color: brown;">highlighted</span>. 
     
 
-In this assignment, we explore OpenCL. We start with configuring the computer (PC) and IDE to run OpenCL code. [Instructions](2_OpenCL_Instructions.md) for Intel GPUs in Windows and Linux are provided.
+In this assignment, we explore OpenCL and Pynq. 
+
+We start with configuring the computer (PC) and IDE to run OpenCL code. [Instructions](2_OpenCL_Instructions.md) for Intel GPUs in Windows and Linux are provided. [Instructions](3_Pynq_OpenCL_Kria.md) to run OpenCL on the Kria board are also provided.
 
 ## Assignment 3
 
 This assignment involves
 
-1) Accelerating the same computational problem as what you did in the previous 2 assignments - to be able to multiply two matrices A and B and to produce the result RES = A*B/256.
+1) Accelerating the same computational problem as what you did in the previous 2 assignments - to be able to multiply two matrices A and B and to produce the result RES = A*B/256. This has to be done via
 
-2) You must also report the time taken for multiplication in pure software (run without hardware acceleration / OpenCL) as well as via OpenCL code. If you have both onboard graphics (e.g. Intel) as well as a discrete GPU, it would be interesting to compare the performance of the two vs pure software. Note: Since the size of the problem you are dealing with is small, the acceleration you obtain won't be indicative. Also, operating system context switches make performance evaluation hard to do deterministically. It is also affected by caching, and generally, it is faster the second time you run it.
+* OpenCL (GPU) on PC and 
+* Kria board (CPU) via Portable OpenCL (PoCL). 
 
-3) Implement OpenCL-based acceleration and/or Pynq on Kria board? May or may not be an eventual requirement depending on how troublesome it is without an ethernet connection and how buggy it is in 2025.1. Still a WIP.
+2) You must also report the time taken for multiplication in pure software (run without hardware acceleration / OpenCL) as well as with OpenCL.
+
+Note: Since the size of the problem you are dealing with is small, the acceleration you obtain won't be indicative. Also, operating system context switches make performance evaluation hard to do deterministically. It is also affected by caching, and generally, it is faster the second time you run it.
+
+If you have both onboard graphics (e.g. Intel) as well as a discrete GPU, it would be interesting to compare the performance of the two vs pure software. This is not a requirement.
+
+3) Implement a Pynq-based acceleration on Kria board. Time measurement is optional, but recommended. The time reported should not include the time to program the bitstream.
 
 ## Submission Info
 
@@ -22,13 +31,17 @@ Assignment 3 (10 marks)
 
 Upload a .zip file containing the
 
-the .c host code
-the .cl kernel code if it is not embedded into the host code
-A text file containing the information printed on the console.
+* the .c host code
+* the .cl kernel code if it is not embedded into the host code
+* the .py file used with Pynq
+* A text file containing the information printed on the console in each of the cases
+    1) OpenCL (GPU) on PC, with a comparison with plain C
+    2) OpenCL (CPU) on Kria, with a comparison with plain C
+    3) Pynq on Kria
 
-to Canvas by **11:59 PM, 14 Oct 2025**.
+to Canvas by **11:59 PM, 20 Oct 2025**.
 
-It should be as a .zip archive, with the filename  \<Team number\>_\<Team Member 1 Name\>_\<Team Member 1 Name\>_3.zip.
+It should be as a .zip archive, with the filename  <Team number\>\_<Team Member 1 Name\>\_<Team Member 1 Name\>\_3.zip.
 
 Please DO NOT upload the whole project!
 
