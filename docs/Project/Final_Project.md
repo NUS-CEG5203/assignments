@@ -31,7 +31,7 @@ Try out various configurations and optimizations.
 HLS/HDL/OpenCL optimizations for FPGA such as unroll, pipeline, array partition, dataflow (applicable if you have multiple workgroups in the NDRange),
 Possible OpenCL optimizations for GPU such as vectorization and different workgroup sizes,
 Bit width optimizations (for both FPGA and GPU, but more applicable for FPGAs), etc.
-Present your results in a presentable manner - for example, as a proper image on PC irrespective of whether you process it on FPGA or PC. It is also possible to show the image on a monitor connected to FPGA directly using the TFT IP provided by Xilinx - let me know if you wish to explore this!.
+Present your results in a presentable manner - for example, as a proper image on PC irrespective of whether you process it on FPGA or PC. It is also possible to show the image on a monitor connected to FPGA directly using the TFT IP provided by Xilinx (if using standalone) or via the GUI of Linux!.
 
 Try synthesizing hardware kernel from OpenCL to share part of the code base between FPGA and GPU. The host program on FPGA need not be OpenCL, and you may need to disable the data cache for proper functionality.
 

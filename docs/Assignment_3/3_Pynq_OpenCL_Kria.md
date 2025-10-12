@@ -5,7 +5,7 @@
 
 ## Booting Linux
 
-For this part, we will boot Ubuntu Linux on Kria board. A zipped image is provided [here](https://www.dropbox.com/scl/fi/layvq4wit8tgajqfjjz1r/Ubuntu_Pynq_Kria_CEG5203_10_10_2025.img.zip?rlkey=tcctipju2ealc165iqxan1wke&st=r2x8sqtg&dl=0). The download password is mentioned in the Canvas announcements. Download and unzip the image (.img).
+For this part, we will boot Ubuntu Linux on Kria board. A zipped SD card image is provided [here](https://www.dropbox.com/scl/fi/layvq4wit8tgajqfjjz1r/Ubuntu_Pynq_Kria_CEG5203_10_10_2025.img.zip?rlkey=tcctipju2ealc165iqxan1wke&st=r2x8sqtg&dl=0). The download password is mentioned in the Canvas announcements. Download and unzip the image (.img).
 
 It is the default Ubuntu 22.04 image modified with the following:
 
