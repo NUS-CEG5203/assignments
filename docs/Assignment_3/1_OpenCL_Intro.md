@@ -39,7 +39,7 @@ Upload a .zip file containing the
     2) OpenCL (CPU) on Kria, with a comparison with plain C
     3) Pynq on Kria
 
-to Canvas by **11:59 PM, 20 Oct 2025**.
+to Canvas by **11:59 PM, 22 Oct 2025**.
 
 It should be as a .zip archive, with the filename  <Team number\>\_<Team Member 1 Name\>\_<Team Member 1 Name\>\_3.zip.
 
