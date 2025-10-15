@@ -1,7 +1,7 @@
 # Pynq and OpenCL on Kria
 
 !!! warning "Follow the Spirit"
-    The instructions should be treated as a guideline rather than a very comprehensive manual. Figure out on your own how to solve issues, if any.
+    The instructions should be treated as a rough guideline rather than a very comprehensive manual. Figure out on your own how to solve issues, if any.
 
 ## Booting Linux
 
@@ -22,7 +22,7 @@ It is the default Ubuntu 22.04 image modified with the following:
 * Example programmes for [OpenCL](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/OpenCLExample) and [Pynq](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/PynqDMAExample) loaded.
 
 Some familiarity with Linux command line is handy from now on. Some useful commands are
-`ls`, `pwd`, `clear`, `nano` (command line text editor), `cp`, `mv`, `rm`, `cat`, `mkdir`. Read up more about these. Pressing tab will help with autocomplete that can be very handing when operating from command line.
+`ls`, `pwd`, `clear`, `nano` (command line text editor), `cp`, `mv`, `rm`, `cat`, `mkdir`, `rmdir`. Read up more about these. Pressing tab will help with autocomplete that can be very handing when operating from command line.
 
 Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader. The SD card should be at least 16 GB capacity. Do not just copy over; use an image writer application such as [Win32 Disk Imager](https://win32diskimager.org/) or [balena Etcher](https://etcher.balena.io/) or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right-click on the .img file in file explorer). The contents of the SD card will entirely be erased.
 
@@ -51,11 +51,11 @@ First, try running the example programs following the sessions below.
 
 Let us start with an OpenCL on CPU (Cortex A53). The main.cpp file is the same as the one we used with OpenCL on PC/Laptop. Just ensure that the correct platform id and device type are used in the .cpp file. Execute the following.
 
-`cd /home/ubuntu/OpenCLExample` to change to the folder with OpenCL example.
+`cd /home/ubuntu/OpenCLExample` // change to the folder with OpenCL example.
 
-`g++ main.cpp -lOpenCL -o main.out` to compile main.cpp
+`g++ main.cpp -lOpenCL -o main.out` // compile main.cpp
 
-`./main.out` to run it.
+`./main.out` // run it.
 
 If you want to make minor edits to the .cpp file, you can do so using nano editor via the command `nano main.cpp`.
 
@@ -71,23 +71,45 @@ Have a look at the .py code and understand the functionality. It is more or less
 
 Pynq requires the .hwh file with the same name as the .bit file, and in the same folder. This is already done for the example in the PynqDMAExample folder.
 
-`sudo -s`
+`sudo -s` // the prompt will change to #. You are now in a root shell.
 
-`source /etc/profile.d/pynq_venv.sh`
+`source /etc/profile.d/pynq_venv.sh` // activate the virtual environment
 
-`cd /home/ubuntu/PynqDMAExample/`
+`cd /home/ubuntu/PynqDMAExample/` // change to the directory containing the python script
 
-`python3 PynqDMAExample.py`
+`python3 PynqDMAExample.py` // run it
 
 To have a new .bit and .hwh, first have the .xsa ready. The .xsa can be unzipped using any tool that can deal with .zip (rename it to .zip if necessary). You will then find the .bit and the .hwh (<span style="color: brown;">The one we need is the top level .hwh, usually named design_1.hwh; not those named design_1_axi_smc_*.hwh</span>) file. Rename the .hwh file to have the same as the .bit file, except for the extension.
 
 If you have SSH /Jupyter lab access, you can copy these files via MobaXterm/Muon SSH/Jupyter lab UI conveniently.
 
 If not, you will need to do it via a USB drive. Copy it to a USB drive (not BitLocker-encrypted) from your laptop. Plug it into one of the USB ports.
-You can then copy the file (say, mybitstream.bit) from `/media/ubuntu/<label>` to your working folder (say, `/home/ubuntu/PynqDMAExample`) via the command
 
-`cp  /media/ubuntu/<label>/mybitstream.bit /home/ubuntu/PynqDMAExample`.
+You can then copy the file (say, mybitstream.bit) from `/media/ubuntu/<label>` to your working directory (say, `/home/ubuntu/PynqDMAExample`) via the command
 
-You can find the `<label>` corresponding to your USB drive by pressing tab and looking at autocomplete options.
+`cp /media/ubuntu/<label>/mybitstream.bit /home/ubuntu/PynqDMAExample`.
+
+Do the same for the `.hwh` file.
+
+You can find the `<label>` corresponding to your USB drive by pressing tab and looking at autocomplete options after typing `cp /media/ubuntu/`.
+
+If `/media/ubuntu/<label>` does not exist, it means your drive was not automounted. In this case, you need to mount it manually. Follow the steps below.
+
+First, find out the partition number of your USB drive. This can be done via the command `lsblk`. You will see something like
+
+`sdb`<br>
+`└─sdb1`
+
+Here, `sdb` is the block device name and `sdb1` is the partition number. If it is different, make the changes are appropriate for the commands below. For now, we use a label/mountpoint `usbdrive`.
+
+`sudo mkdir -p /media/ubuntu/usbdrive`  // to create a directory to mount the drive
+
+`sudo mount /dev/sdb1 /media/ubuntu/usbdrive/`  // mount it. Will be read-only for the user ubuntu. 
+
+`cp /media/ubuntu/usbdrive/mybitstream.bit /home/ubuntu/PynqDMAExample`. // to copy the bitstream over to our working directory. Do the same for the `.hwh` file.
+
+Before removing the USB drive, it is a very good idea to unmount it via `sudo umount /media/ubuntu/usbdrive`.
 
 If you wish to make substantial changes to the .cpp file for OpenCL, you can also edit on the laptop and copy it using one of the methods mentioned above.
+
+If you made changes to your file directory on the Kria, in order to copy back to the USB drive, the drive should be mounted with write permissions for the user ubuntu. It is easy to figure out how to do this with a bit of Googling.
