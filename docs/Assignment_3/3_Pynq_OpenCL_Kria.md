@@ -5,15 +5,16 @@
 
 ## Booting Linux
 
-For this part, we will boot Ubuntu Linux on Kria board. AMD/Xilinx does not provide a ready-to-use image for Kria board yet. 
+For this part, we will boot Ubuntu Linux on Kria board. 
+
+AMD/Xilinx does not provide a ready-to-use image for Kria board yet.
+
 A zipped SD card image is provided [here - version 16_10_2025](https://www.dropbox.com/scl/fi/th7kynsmgxojzxmkh0fav/Ubuntu_Pynq_Kria_CEG5203_16_10_2025.img.zip?rlkey=q3ioj6el6vzrxj9gzw1d70p9x&st=pr2fa0ml&dl=0). The download password is mentioned in the Canvas announcements. Download and unzip the image (.img).
 
-<span style="color: brown;">
-The following changes were made to the image:
+<span style="color: brown;"> The following changes were made to the image: </span>
 
 * Version 12_10_2025 : OpenCV downgraded to 4.10.0.84. 
 * Version 16_10_2025 : Size of image shrunk to less than 14 GB, which should fit into all 16 GB SD cards.
-</span>
 
 It is the default Ubuntu 22.04 image modified with the following:
 
@@ -93,7 +94,7 @@ Do the same for the `.hwh` file.
 
 You can find the `<label>` corresponding to your USB drive by pressing tab and looking at autocomplete options after typing `cp /media/ubuntu/`.
 
-If `/media/ubuntu/<label>` does not exist, it means your drive was not automounted. In this case, you need to mount it manually. Follow the steps below.
+<span style="color: brown;">If `/media/ubuntu/<label>` does not exist, it means your drive was not automounted. In this case, you need to mount it manually. Follow the steps below.</span>
 
 First, find out the partition number of your USB drive. This can be done via the command `lsblk`. You will see something like
 
@@ -110,6 +111,6 @@ Here, `sdb` is the block device name and `sdb1` is the partition number. If it i
 
 Before removing the USB drive, it is a very good idea to unmount it via `sudo umount /media/ubuntu/usbdrive`.
 
-If you wish to make substantial changes to the .cpp file for OpenCL, you can also edit on the laptop and copy it using one of the methods mentioned above.
-
 If you made changes to your file directory on the Kria, in order to copy back to the USB drive, the drive should be mounted with write permissions for the user ubuntu. It is easy to figure out how to do this with a bit of Googling.
+
+If you wish to make substantial changes to the .cpp file for OpenCL, you can also edit on the laptop and copy it using one of the methods mentioned above.
