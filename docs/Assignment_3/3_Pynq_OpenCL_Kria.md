@@ -5,7 +5,8 @@
 
 ## Booting Linux
 
-For this part, we will boot Ubuntu Linux on Kria board. A zipped SD card image is provided [here](https://www.dropbox.com/scl/fi/9yn18q0ke9ivr4kiyomkq/Ubuntu_Pynq_Kria_CEG5203_12_10_2025.img.zip?rlkey=3pfy069elj6fe5p283jzaritm&st=v2fte4zg&dl=0). The download password is mentioned in the Canvas announcements. Download and unzip the image (.img).
+For this part, we will boot Ubuntu Linux on Kria board. AMD/Xilinx does not provide a ready-to-use image for Kria board yet. 
+A zipped SD card image is provided [here](https://www.dropbox.com/scl/fi/9yn18q0ke9ivr4kiyomkq/Ubuntu_Pynq_Kria_CEG5203_12_10_2025.img.zip?rlkey=3pfy069elj6fe5p283jzaritm&st=v2fte4zg&dl=0). The download password is mentioned in the Canvas announcements. Download and unzip the image (.img).
 
 It is the default Ubuntu 22.04 image modified with the following:
 
@@ -17,11 +18,11 @@ It is the default Ubuntu 22.04 image modified with the following:
 Some familiarity with Linux commandline is handy from now on. Some useful commands are
 `ls`, `pwd`, `clear`, `nano` (commandline text editor), `cp`, `mv`, `rm`, `cat`, `mkdir`, pressing tab will help with for autocomplete. Read up more about these.
 
-Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader. The SD card should be at least 16 GB capacity. Do not just copy over; use an image writer application such as [Win32 Disk Imager](https://win32diskimager.org/) or [balena Etcher](https://etcher.balena.io/) or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right click on the .img file in file explorer). The contents of the SD card will entirely be erased.
+Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader. The SD card should be at least 16 GB capacity. Do not just copy over; use an image writer application such as [Win32 Disk Imager](https://win32diskimager.org/) or [balena Etcher](https://etcher.balena.io/) or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right-click on the .img file in file explorer). The contents of the SD card will entirely be erased.
 
 Put the SD card into the micro SD card slot.
 
-Turn it on, and it will boot from SD Card to Ubuntu 22.04.
+Turn it on, and it will boot from SD Card to Ubuntu 22.04. There is a small chance it may not boot due to potential incompatibility between the board firmware and OS version. If this happens, perhaps it is a good idea to change the board to another one with a newer firmware.
 
 If using serial port (minimal connections to the board, but less flexible):
 Use a terminal program and connect to the appropriate COM/tty/serial port as you did in assignment 1, baud rate of 115200. You will see the various boot messages.
@@ -58,7 +59,7 @@ Make sure that the line containing `#define XCLBIN` is commented out, as uncomme
 
 Pynq framework allows python code to interact with your custom coprocessor connected via AXI DMA (not AXI Stream FIFO).
 
-The example programm adds 4 numbers, invoking the coprocessor and prints the sum, sum+1, sum+2, sum+3 (the coprocessor created using the example HLS code from Assignment 2).  
+The example program adds 4 numbers, invoking the coprocessor and prints the sum, sum+1, sum+2, sum+3 (the coprocessor created using the example HLS code from Assignment 2).  
 
 Have a look at the .py code and understand the functionality. It is more or less the same as the C program used with AXI DMA, except that the bitstream is downloaded by the host python code, rather than before the host code is run (which was the case with Assignment 2). This also means a few seconds delay before the computation is started and results are printed.
 
@@ -72,7 +73,7 @@ Pynq requires the .hwh file with the same name as the .bit file, and in the same
 
 `python3 PynqDMAExample.py`
 
-To have a new .bit and .hwh, first have the .xsa ready. The .xsa can be unzipped using any tool that can deal with .zip (rename it to .zip if necessary). You will then find the .bit and the .hwh file. Rename the .hwh file to the same as the .bit file.
+To have a new .bit and .hwh, first have the .xsa ready. The .xsa can be unzipped using any tool that can deal with .zip (rename it to .zip if necessary). You will then find the .bit and the .hwh (<span style="color: brown;">Hthe one we need is the top level .hwh, usually named design_1.hwh; not those named design_1_axi_smc_*.hwh</span>) file. Rename the .hwh file to be the same as the .bit file.
 
 If you have SSH /Jupyter lab access, you can copy these files via MobaXterm/Muon SSH/Jupyter lab UI conveniently.
 
@@ -81,6 +82,6 @@ You can then copy the file (say, mybitstream.bit) from `/media/ubuntu/<label>` t
 
 `cp  /media/ubuntu/<label>/mybitstream.bit /home/ubuntu/PynqDMAExample`.
 
-You can find the `xxxxx` corresponding to your USB drive by pressing tab and looking at autocomplete options.
+You can find the `<label>` corresponding to your USB drive by pressing tab and looking at autocomplete options.
 
 If you wish to make substantial changes to the .cpp file for OpenCL, you can also edit on the laptop and copy it using one of the methods mentioned above.

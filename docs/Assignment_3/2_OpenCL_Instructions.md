@@ -113,4 +113,4 @@ In Linux, you can install it via `sudo apt install pocl-opencl-icd`.
 
 Make slight adjustments to the code, by selecting the correct platform and device type.
 
-It works on the Kria board too if you boot Linux, and install PoCL. More instructions in [this](3_Pynq_OpenCL_Kria.md) page.
+It works on the Kria board too if you boot Linux, and install PoCL. More instructions in [this](3_Pynq_OpenCL_Kria.md#opencl-on-kria) page.
