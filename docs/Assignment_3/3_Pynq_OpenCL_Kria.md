@@ -39,7 +39,7 @@ Eventually, it will throw up a login prompt. Username is _ubuntu_ and password i
 
 If you had not connected to the serial port before the boot is complete, press enter, and it will show the login prompt. 
 
-An alternative to serial port if you have network connectivity. - SSH (MobaXterm on Windows and [Muon SSH](https://github.com/devlinx9/muon-ssh) / bash terminal in Linux) or terminal within Jupyter Lab at <your_ip_address\>:9090/lab - password to enter the web interface itself is _xilinx_. This has the advantage of not needing USB drive to copy programs/bitstream over.
+An alternative to serial port if you have network connectivity - SSH (MobaXterm on Windows and [Muon SSH](https://github.com/devlinx9/muon-ssh) / bash terminal in Linux) or terminal within Jupyter Lab at <your_ip_address\>:9090/lab - password to enter the web interface itself is _xilinx_. This has the advantage of not needing USB drive to copy programs/bitstream over.
 
 Another alternative: If you have an HDMI/DisplayPort monitor, keyboard and mouse: You can connect and operate like a normal computer.
 
@@ -79,7 +79,7 @@ Pynq requires the .hwh file with the same name as the .bit file, and in the same
 
 `python3 PynqDMAExample.py`
 
-To have a new .bit and .hwh, first have the .xsa ready. The .xsa can be unzipped using any tool that can deal with .zip (rename it to .zip if necessary). You will then find the .bit and the .hwh (<span style="color: brown;">Hthe one we need is the top level .hwh, usually named design_1.hwh; not those named design_1_axi_smc_*.hwh</span>) file. Rename the .hwh file to be the same as the .bit file.
+To have a new .bit and .hwh, first have the .xsa ready. The .xsa can be unzipped using any tool that can deal with .zip (rename it to .zip if necessary). You will then find the .bit and the .hwh (<span style="color: brown;">The one we need is the top level .hwh, usually named design_1.hwh; not those named design_1_axi_smc_*.hwh</span>) file. Rename the .hwh file to have the same as the .bit file, except for the extension.
 
 If you have SSH /Jupyter lab access, you can copy these files via MobaXterm/Muon SSH/Jupyter lab UI conveniently.
 
