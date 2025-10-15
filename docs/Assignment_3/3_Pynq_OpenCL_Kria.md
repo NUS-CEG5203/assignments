@@ -21,8 +21,8 @@ It is the default Ubuntu 22.04 image modified with the following:
 * PoCL installed.
 * Example programmes for [OpenCL](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/OpenCLExample) and [Pynq](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/PynqDMAExample) loaded.
 
-Some familiarity with Linux commandline is handy from now on. Some useful commands are
-`ls`, `pwd`, `clear`, `nano` (commandline text editor), `cp`, `mv`, `rm`, `cat`, `mkdir`, pressing tab will help with for autocomplete. Read up more about these.
+Some familiarity with Linux command line is handy from now on. Some useful commands are
+`ls`, `pwd`, `clear`, `nano` (command line text editor), `cp`, `mv`, `rm`, `cat`, `mkdir`. Read up more about these. Pressing tab will help with autocomplete that can be very handing when operating from command line.
 
 Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader. The SD card should be at least 16 GB capacity. Do not just copy over; use an image writer application such as [Win32 Disk Imager](https://win32diskimager.org/) or [balena Etcher](https://etcher.balena.io/) or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right-click on the .img file in file explorer). The contents of the SD card will entirely be erased.
 
