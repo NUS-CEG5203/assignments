@@ -10,8 +10,9 @@ A zipped SD card image is provided [here - version 16_10_2025](https://www.dropb
 
 <span style="color: brown;">
 The following changes were made to the image:
-Version 12_10_2025 : OpenCV downgraded to 4.10.0.84. 
-Version 16_10_2025 : Size of image shrunk to less than 14 GB, which should fit into all 16 GB SD cards.
+
+* Version 12_10_2025 : OpenCV downgraded to 4.10.0.84. 
+* Version 16_10_2025 : Size of image shrunk to less than 14 GB, which should fit into all 16 GB SD cards.
 </span>
 
 It is the default Ubuntu 22.04 image modified with the following:
