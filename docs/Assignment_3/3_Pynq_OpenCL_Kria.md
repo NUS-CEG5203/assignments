@@ -20,7 +20,7 @@ It is the default Ubuntu 22.04 image modified with the following:
 
 * Pynq installed. That requires numpy to be downgraded to 1.26.4. <span style="color: brown;">OpenCV should be downgraded to 4.10.0.84 for it to work with this version of numpy (not sure if it breaks any other package).</span>
 * PoCL installed.
-* Example programmes for [OpenCL](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/OpenCLExample) and [Pynq](https://nus-ceg5203.github.io/assignments/Assignment_3/code_templates/PynqDMAExample) loaded.
+* Example programmes for [OpenCL and Pynq](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_3/code_templates) loaded.
 
 Some familiarity with Linux command line is handy from now on. Some useful commands are
 `ls`, `pwd`, `clear`, `nano` (command line text editor), `cp`, `mv`, `rm`, `cat`, `mkdir`, `rmdir`. Read up more about these. Pressing tab will help with autocomplete that can be very handing when operating from command line.
@@ -40,7 +40,7 @@ Eventually, it will throw up a login prompt. Username is _ubuntu_ and password i
 
 If you had not connected to the serial port before the boot is complete, press enter, and it will show the login prompt. 
 
-An alternative to serial port if you have network connectivity - SSH (MobaXterm on Windows and [Muon SSH](https://github.com/devlinx9/muon-ssh) / bash terminal in Linux) or terminal within Jupyter Lab at <your_ip_address\>:9090/lab - password to enter the web interface itself is _xilinx_. This has the advantage of not needing USB drive to copy programs/bitstream over.
+An alternative to serial port if you have network connectivity - SSH (MobaXterm on Windows and [Muon SSH](https://github.com/devlinx9/muon-ssh) / bash terminal in Linux) or terminal within Jupyter Lab at <your_ip_address\>:9090/lab - password to enter the web interface itself is _xilinx_. This has the advantage of not needing USB drive to copy programs/bitstream over. You can connect the board to the router (better) or directly to the laptop, if your laptop has an ethernet port. In case of the latter, you will need to set static IP at both the board and for the laptop ethernet interface.
 
 Another alternative: If you have an HDMI/DisplayPort monitor, keyboard and mouse: You can connect and operate like a normal computer.
 
@@ -103,9 +103,9 @@ First, find out the partition number of your USB drive. This can be done via the
 
 Here, `sdb` is the block device name and `sdb1` is the partition number. If it is different, make the changes are appropriate for the commands below. For now, we use a label/mountpoint `usbdrive`.
 
-`sudo mkdir -p /media/ubuntu/usbdrive`  // to create a directory to mount the drive
+`sudo mkdir -p /media/ubuntu/usbdrive`  // to create a directory to mount the drive, if it does not exist.
 
-`sudo mount /dev/sdb1 /media/ubuntu/usbdrive/`  // mount it. Will be read-only for the user ubuntu. 
+`sudo mount /dev/sdb1 /media/ubuntu/usbdrive/`  // mount it. Will be read-only for the user ubuntu. This has to done with each unmounting or reboot. An alternative is an appropriate entry in /etc/fstab.
 
 `cp /media/ubuntu/usbdrive/mybitstream.bit /home/ubuntu/PynqDMAExample`. // to copy the bitstream over to our working directory. Do the same for the `.hwh` file.
 
