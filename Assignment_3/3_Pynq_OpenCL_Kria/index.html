@@ -1,0 +1,1130 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nus-ceg5203.github.io/assignments/Assignment_3/3_Pynq_OpenCL_Kria/">
+      
+      
+        <link rel="prev" href="../2_OpenCL_Instructions/">
+      
+      
+        <link rel="next" href="../../Installation/Installing_Vitis/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Pynq and OpenCL on Kria - CEG5203 Assignments</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="nus" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pynq-and-opencl-on-kria" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CEG5203 Assignments" class="md-header__button md-logo" aria-label="CEG5203 Assignments" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CEG5203 Assignments
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pynq and OpenCL on Kria
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CEG5203 Assignments" class="md-nav__button md-logo" aria-label="CEG5203 Assignments" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CEG5203 Assignments
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CEG5203 Assignment Manuals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Assignment 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Assignment 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_1/1_Intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Hardware/Software Co-Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_1/2_HW_Platform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating the Hardware Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_1/3_Using_Vitis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software development using Vitis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_1/3_Using_Vitis_Classic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software development using Vitis Classic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_1/4_Serial_Console/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serial Console - RealTerm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_1/5_Performance_Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Measuring Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_1/6_Tips_Suggestions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tips and Suggestions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Assignment 2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Assignment 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_2/1_HLSIntro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    High Level Synthesis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_2/2_HLSFLow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HLS Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_2/3_FIFO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Coprocessor Integration using AXI Stream FIFO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_2/3_MultipleCoPro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connecting Multiple Coprocessors (Optional)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_2/4_DMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Coprocessor Integration using AXI DMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment_2/5_ModifyCoPro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modifying the Coprocessor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Assignment 3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Assignment 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_OpenCL_Intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenCL Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_OpenCL_Instructions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenCL Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Pynq and OpenCL on Kria
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pynq and OpenCL on Kria
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#booting-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Booting Linux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opencl-on-kria" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenCL on Kria
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pynq-on-kria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pynq on Kria
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Installing_Vitis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing Vitis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Project
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Project/Final_Project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Open-ended Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#booting-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Booting Linux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opencl-on-kria" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenCL on Kria
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pynq-on-kria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pynq on Kria
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="pynq-and-opencl-on-kria">Pynq and OpenCL on Kria</h1>
+<div class="admonition warning">
+<p class="admonition-title">Follow the Spirit</p>
+<p>The instructions should be treated as a rough guideline rather than a very comprehensive manual. Figure out on your own how to solve issues, if any.</p>
+</div>
+<h2 id="booting-linux">Booting Linux</h2>
+<p>For this part, we will boot Ubuntu Linux on Kria board. </p>
+<p>AMD/Xilinx does not provide a ready-to-use image for Kria board yet.</p>
+<p>A zipped SD card image is provided <a href="https://www.dropbox.com/scl/fi/th7kynsmgxojzxmkh0fav/Ubuntu_Pynq_Kria_CEG5203_16_10_2025.img.zip?rlkey=q3ioj6el6vzrxj9gzw1d70p9x&amp;st=pr2fa0ml&amp;dl=0">here - version 16_10_2025</a>. The download password is mentioned in the Canvas announcements. Download and unzip the image (.img).</p>
+<p><span style="color: brown;"> The following changes were made to the image: </span></p>
+<ul>
+<li>Version 12_10_2025 : OpenCV downgraded to 4.10.0.84. </li>
+<li>Version 16_10_2025 : Size of image shrunk to less than 14 GB, which should fit into all 16 GB SD cards.</li>
+</ul>
+<p>It is the default Ubuntu 22.04 image modified with the following:</p>
+<ul>
+<li>Pynq installed. That requires numpy to be downgraded to 1.26.4. <span style="color: brown;">OpenCV should be downgraded to 4.10.0.84 for it to work with this version of numpy (not sure if it breaks any other package).</span></li>
+<li>PoCL installed.</li>
+<li>Example programmes for <a href="https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_3/code_templates">OpenCL and Pynq</a> loaded.</li>
+</ul>
+<p>Some familiarity with Linux command line is handy from now on. Some useful commands are
+<code>ls</code>, <code>pwd</code>, <code>clear</code>, <code>nano</code> (command line text editor), <code>cp</code>, <code>mv</code>, <code>rm</code>, <code>cat</code>, <code>mkdir</code>, <code>rmdir</code>. Read up more about these. Pressing tab will help with autocomplete that can be very handing when operating from command line.</p>
+<p>Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader. The SD card should be at least 16 GB capacity. Do not just copy over; use an image writer application such as <a href="https://win32diskimager.org/">Win32 Disk Imager</a> or <a href="https://etcher.balena.io/">balena Etcher</a> or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right-click on the .img file in file explorer). The contents of the SD card will entirely be erased.</p>
+<p>Put the SD card into the micro SD card slot.</p>
+<p>Turn it on, and it will boot from SD Card to Ubuntu 22.04. There is a small chance it may not boot due to potential incompatibility between the board firmware and OS version. If this happens, perhaps it is a good idea to change the board to another one with a newer firmware.</p>
+<p>If using serial port (minimal connections to the board, but less flexible):
+Use a terminal program and connect to the appropriate COM/tty/serial port as you did in assignment 1, baud rate of 115200. You will see the various boot messages.</p>
+<p>If using Windows on your laptop/PC, RealTerm can be used for this purpose, but it is not great to be used like a conventional high-level terminal, though it is great for low-level debugging. RealTerm shows all characters by default, including non-printable ones, which makes it look messy. In the display tab, change it to ANSI to make it operate like a normal terminal. Even then, it is not great for the purpose. It is suggested to use another terminal program such as <a href="https://mobaxterm.mobatek.net/download.html">MobaXterm Home Editon</a>.</p>
+<p>Eventually, it will throw up a login prompt. Username is <em>ubuntu</em> and password is the same as the one used for downloading the archive.</p>
+<p>If you had not connected to the serial port before the boot is complete, press enter, and it will show the login prompt. </p>
+<p>An alternative to serial port if you have network connectivity - SSH (MobaXterm on Windows and <a href="https://github.com/devlinx9/muon-ssh">Muon SSH</a> / bash terminal in Linux) or terminal within Jupyter Lab at &lt;your_ip_address&gt;:9090/lab - password to enter the web interface itself is <em>xilinx</em>. This has the advantage of not needing USB drive to copy programs/bitstream over. You can connect the board to the router (better) or directly to the laptop, if your laptop has an ethernet port. In case of the latter, you will need to set static IP at both the board and for the laptop ethernet interface.</p>
+<p>Another alternative: If you have an HDMI/DisplayPort monitor, keyboard and mouse: You can connect and operate like a normal computer.</p>
+<p>Every time before you power off, shut down the OS properly using <code>sudo shutdown -h now</code>. Wait until the LEDs next to the fan turns off before removing power.</p>
+<p>First, try running the example programs following the sessions below.</p>
+<h2 id="opencl-on-kria">OpenCL on Kria</h2>
+<p>Let us start with an OpenCL on CPU (Cortex A53). The main.cpp file is the same as the one we used with OpenCL on PC/Laptop. Just ensure that the correct platform id and device type are used in the .cpp file. Execute the following.</p>
+<p><code>cd /home/ubuntu/OpenCLExample</code> // change to the folder with OpenCL example.</p>
+<p><code>g++ main.cpp -lOpenCL -o main.out</code> // compile main.cpp</p>
+<p><code>./main.out</code> // run it.</p>
+<p>If you want to make minor edits to the .cpp file, you can do so using nano editor via the command <code>nano main.cpp</code>.</p>
+<p>Make sure that the line containing <code>#define XCLBIN</code> is commented out, as uncommenting it will cause the system to crash. It was an attempt to use OpenCL host code with the FPGA (PL) accelerator, which is not working, likely due to version-related issues.</p>
+<h2 id="pynq-on-kria">Pynq on Kria</h2>
+<p>Pynq framework allows python code to interact with your custom coprocessor connected via AXI DMA (not AXI Stream FIFO).</p>
+<p>The example program adds 4 numbers, invoking the coprocessor and prints the sum, sum+1, sum+2, sum+3 (the coprocessor created using the example HLS code from Assignment 2).  </p>
+<p>Have a look at the .py code and understand the functionality. It is more or less the same as the C program used with AXI DMA, except that the bitstream is downloaded by the host python code, rather than before the host code is run (which was the case with Assignment 2). This also means a few seconds delay before the computation is started and results are printed.</p>
+<p>Pynq requires the .hwh file with the same name as the .bit file, and in the same folder. This is already done for the example in the PynqDMAExample folder.</p>
+<p><code>sudo -s</code> // the prompt will change to #. You are now in a root shell.</p>
+<p><code>source /etc/profile.d/pynq_venv.sh</code> // activate the virtual environment</p>
+<p><code>cd /home/ubuntu/PynqDMAExample/</code> // change to the directory containing the python script</p>
+<p><code>python3 PynqDMAExample.py</code> // run it</p>
+<p>To have a new .bit and .hwh, first have the .xsa ready. The .xsa can be unzipped using any tool that can deal with .zip (rename it to .zip if necessary). You will then find the .bit and the .hwh (<span style="color: brown;">The one we need is the top level .hwh, usually named design_1.hwh; not those named design_1_axi_smc_*.hwh</span>) file. Rename the .hwh file to have the same as the .bit file, except for the extension.</p>
+<p>If you have SSH /Jupyter lab access, you can copy these files via MobaXterm/Muon SSH/Jupyter lab UI conveniently.</p>
+<p>If not, you will need to do it via a USB drive. Copy it to a USB drive (not BitLocker-encrypted) from your laptop. Plug it into one of the USB ports.</p>
+<p>You can then copy the file (say, mybitstream.bit) from <code>/media/ubuntu/&lt;label&gt;</code> to your working directory (say, <code>/home/ubuntu/PynqDMAExample</code>) via the command</p>
+<p><code>cp /media/ubuntu/&lt;label&gt;/mybitstream.bit /home/ubuntu/PynqDMAExample</code>.</p>
+<p>Do the same for the <code>.hwh</code> file.</p>
+<p>You can find the <code>&lt;label&gt;</code> corresponding to your USB drive by pressing tab and looking at autocomplete options after typing <code>cp /media/ubuntu/</code>.</p>
+<p><span style="color: brown;">If <code>/media/ubuntu/&lt;label&gt;</code> does not exist, it means your drive was not automounted. In this case, you need to mount it manually. Follow the steps below.</span></p>
+<p>First, find out the partition number of your USB drive. This can be done via the command <code>lsblk</code>. You will see something like</p>
+<p><code>sdb</code><br>
+<code>└─sdb1</code></p>
+<p>Here, <code>sdb</code> is the block device name and <code>sdb1</code> is the partition number. If it is different, make the changes are appropriate for the commands below. For now, we use a label/mountpoint <code>usbdrive</code>.</p>
+<p><code>sudo mkdir -p /media/ubuntu/usbdrive</code>  // to create a directory to mount the drive, if it does not exist.</p>
+<p><code>sudo mount /dev/sdb1 /media/ubuntu/usbdrive/</code>  // mount it. Will be read-only for the user ubuntu. This has to done with each unmounting or reboot. An alternative is an appropriate entry in /etc/fstab.</p>
+<p><code>cp /media/ubuntu/usbdrive/mybitstream.bit /home/ubuntu/PynqDMAExample</code>. // to copy the bitstream over to our working directory. Do the same for the <code>.hwh</code> file.</p>
+<p>Before removing the USB drive, it is a very good idea to unmount it via <code>sudo umount /media/ubuntu/usbdrive</code>.</p>
+<p>If you made changes to your file directory on the Kria, in order to copy back to the USB drive, the drive should be mounted with write permissions for the user ubuntu. It is easy to figure out how to do this with a bit of Googling.</p>
+<p>If you wish to make substantial changes to the .cpp file for OpenCL, you can also edit on the laptop and copy it using one of the methods mentioned above.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.tooltips"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
