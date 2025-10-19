@@ -7,7 +7,7 @@
 
 For this part, we will boot Ubuntu Linux on Kria board. 
 
-AMD/Xilinx does not provide a ready-to-use image for Kria board yet.
+<span style="color: brown;"> AMD/Xilinx *does not* provide a [ready-to-use image for Kria board](https://www.pynq.io/boards.html) yet.</span>
 
 A zipped SD card image is provided [here - version 16_10_2025](https://www.dropbox.com/scl/fi/th7kynsmgxojzxmkh0fav/Ubuntu_Pynq_Kria_CEG5203_16_10_2025.img.zip?rlkey=q3ioj6el6vzrxj9gzw1d70p9x&st=pr2fa0ml&dl=0). The download password is mentioned in the Canvas announcements. Download and unzip the image (.img).
 
@@ -16,9 +16,10 @@ A zipped SD card image is provided [here - version 16_10_2025](https://www.dropb
 * Version 12_10_2025 : OpenCV downgraded to 4.10.0.84. 
 * Version 16_10_2025 : Size of image shrunk to less than 14 GB, which should fit into all 16 GB SD cards.
 
-It is the default Ubuntu 22.04 image modified with the following:
+It is the [official Kria Ubuntu 22.04 image](https://ubuntu.com/download/amd) modified with the following:
 
-* Pynq installed. That requires numpy to be downgraded to 1.26.4. <span style="color: brown;">OpenCV should be downgraded to 4.10.0.84 for it to work with this version of numpy (not sure if it breaks any other package).</span>
+* [Pynq](https://github.com/Xilinx/Kria-PYNQ) installed. It does not work out of the box and requires numpy to be downgraded to 1.26.4. 
+<span style="color: brown;">OpenCV should be downgraded to 4.10.0.84 for it to work with this version of numpy (not sure if it breaks any other package).</span>
 * PoCL installed.
 * Example programmes for [OpenCL and Pynq](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_3/code_templates) loaded.
 
