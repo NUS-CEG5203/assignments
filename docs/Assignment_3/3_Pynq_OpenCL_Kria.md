@@ -26,11 +26,11 @@ It is the [official Kria Ubuntu 22.04 image](https://ubuntu.com/download/amd) mo
 Some familiarity with Linux command line is handy from now on. Some useful commands are
 `ls`, `pwd`, `clear`, `nano` (command line text editor), `cp`, `mv`, `rm`, `cat`, `mkdir`, `rmdir`. Read up more about these. Pressing tab will help with autocomplete that can be very handing when operating from command line.
 
-Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader. The SD card should be at least 16 GB capacity. Do not just copy over; use an image writer application such as [Win32 Disk Imager](https://win32diskimager.org/) or [balena Etcher](https://etcher.balena.io/) or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right-click on the .img file in file explorer). The contents of the SD card will entirely be erased.
+Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader. The SD card should be at least 16 GB capacity. Do not just copy over; use an image writer application such as [Raspberry Pi Imager](https://www.raspberrypi.com/software/) (for CHOOSE OS, select the last option, i.e, 'use custom'; ignore the CHOOSE DEVICE option) or [Win32 Disk Imager](https://win32diskimager.org/) or [balena Etcher](https://etcher.balena.io/) or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right-click on the .img file in file explorer). The contents of the SD card will entirely be erased - make sure you choose the correct device/drive!.
 
 Put the SD card into the micro SD card slot.
 
-Turn it on, and it will boot from SD Card to Ubuntu 22.04. There is a small chance it may not boot due to potential incompatibility between the board firmware and OS version. If this happens, perhaps it is a good idea to change the board to another one with a newer firmware.
+Turn it on, and it will boot from SD Card to Ubuntu 22.04. There is a small chance it may not boot due to potential incompatibility between the board firmware and OS version. If this happens, perhaps it is a good idea to change the board to another one with a newer firmware. You can also update the firmware to the latest following the [instructions](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/3020685316/Kria+SOM+Boot+Firmware+Update), which requires a direct Ethernet connetion between the board and your laptop.
 
 If using serial port (minimal connections to the board, but less flexible):
 Use a terminal program and connect to the appropriate COM/tty/serial port as you did in assignment 1, baud rate of 115200. You will see the various boot messages.
