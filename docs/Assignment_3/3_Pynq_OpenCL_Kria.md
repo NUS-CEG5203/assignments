@@ -13,7 +13,7 @@ A zipped SD card image is provided [here - version 16_10_2025](https://www.dropb
 
 <span style="color: brown;"> The following changes were made to the image: </span>
 
-* Version 12_10_2025 : OpenCV downgraded to 4.10.0.84. 
+* Version 12_10_2025 : OpenCV downgraded to 4.10.0.84.
 * Version 16_10_2025 : Size of image shrunk to less than 14 GB, which should fit into all 16 GB SD cards.
 
 It is the [official Kria Ubuntu 22.04 image](https://ubuntu.com/download/amd) modified with the following:
@@ -41,7 +41,15 @@ Eventually, it will throw up a login prompt. Username is _ubuntu_ and password i
 
 If you had not connected to the serial port before the boot is complete, press enter, and it will show the login prompt. 
 
-An alternative to serial port if you have network connectivity - SSH (MobaXterm on Windows and [Muon SSH](https://github.com/devlinx9/muon-ssh) / bash terminal in Linux) or terminal within Jupyter Lab at <your_ip_address\>:9090/lab - password to enter the web interface itself is _xilinx_. This has the advantage of not needing USB drive to copy programs/bitstream over. You can connect the board to the router (better) or directly to the laptop, if your laptop has an ethernet port. In case of the latter, you will need to set static IP at both the board and for the laptop ethernet interface.
+<span style="color: brown;">
+Alternatives to serial port if you can have wired (Ethernet) connection to a router or a laptop having an Ethernet interface:
+    - SSH - MobaXterm on Windows or [Muon SSH](https://github.com/devlinx9/muon-ssh) / bash terminal in Linux.
+    - Terminal within Jupyter Lab at <your_ip_address\>:9090/lab - password to enter the web interface itself is _xilinx_.
+The above have the advantage of not needing USB drive to copy programs/bitstream over and provides a generally smoother experience than serial.
+In case of a connection directly to laptop, you will need to do either of the below:
+    - (Preferred) Share your laptop internet connection via Ethernet (ChatGPT will tell you how). You will also need to figure out the IP address of the board, which can be done from the router status page or by accessing the Kria Linux commandline, and running `hostname -I` or `ip addr show`. It can also be found from your laptop - for example, if your laptop is running Linux, you can find via `arp -n`.
+    - Set static IP addresses on both the Kria board and the laptop.
+</span>
 
 Another alternative: If you have an HDMI/DisplayPort monitor, keyboard and mouse: You can connect and operate like a normal computer.
 
