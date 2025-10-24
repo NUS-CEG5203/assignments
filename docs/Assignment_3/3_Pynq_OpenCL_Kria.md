@@ -24,38 +24,60 @@ It is the [official Kria Ubuntu 22.04 image](https://ubuntu.com/download/amd) mo
 * Example programmes for [OpenCL and Pynq](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_3/code_templates) loaded.
 
 Some familiarity with Linux command line is handy from now on. Some useful commands are
-`ls`, `pwd`, `clear`, `nano` (command line text editor), `cp`, `mv`, `rm`, `cat`, `mkdir`, `rmdir`. Read up more about these. Pressing tab will help with autocomplete that can be very handing when operating from command line.
+`ls`, `pwd`, `clear`, `nano` (command line text editor), `cp`, `mv`, `rm`, `cat`, `mkdir`, `rmdir`. Read up more about these. Pressing tab will help with autocomplete and that can be very handing when operating from command line.
 
-Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader. The SD card should be at least 16 GB capacity. Do not just copy over; use an image writer application such as [Raspberry Pi Imager](https://www.raspberrypi.com/software/) (for CHOOSE OS, select the last option, i.e, 'use custom'; ignore the CHOOSE DEVICE option) or [Win32 Disk Imager](https://win32diskimager.org/) or [balena Etcher](https://etcher.balena.io/) or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right-click on the .img file in file explorer). The contents of the SD card will entirely be erased - make sure you choose the correct device/drive!.
+Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader or the provided card reader. The SD card should be at least 16 GB capacity. Do not just copy over; use an image writer application such as [Raspberry Pi Imager](https://www.raspberrypi.com/software/) (for CHOOSE OS, select the last option, i.e, 'use custom'; ignore the CHOOSE DEVICE option) or [Win32 Disk Imager](https://win32diskimager.org/) or [balena Etcher](https://etcher.balena.io/) or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right-click on the .img file in file explorer). The contents of the SD card will entirely be erased - make sure you choose the correct device/drive!.
 
-Put the SD card into the micro SD card slot.
+Insert the SD card into the micro SD card slot with the printed side facing up.
 
-Turn it on, and it will boot from SD Card to Ubuntu 22.04. There is a small chance it may not boot due to potential incompatibility between the board firmware and OS version. If this happens, perhaps it is a good idea to change the board to another one with a newer firmware. You can also update the firmware to the latest following the [instructions](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/3020685316/Kria+SOM+Boot+Firmware+Update), which requires a direct Ethernet connetion between the board and your laptop.
-
-If using serial port (minimal connections to the board, but less flexible):
-Use a terminal program and connect to the appropriate COM/tty/serial port as you did in assignment 1, baud rate of 115200. You will see the various boot messages.
-
-If using Windows on your laptop/PC, RealTerm can be used for this purpose, but it is not great to be used like a conventional high-level terminal, though it is great for low-level debugging. RealTerm shows all characters by default, including non-printable ones, which makes it look messy. In the display tab, change it to ANSI to make it operate like a normal terminal. Even then, it is not great for the purpose. It is suggested to use another terminal program such as [MobaXterm Home Editon](https://mobaxterm.mobatek.net/download.html).
-
-Eventually, it will throw up a login prompt. Username is _ubuntu_ and password is the same as the one used for downloading the archive.
-
-If you had not connected to the serial port before the boot is complete, press enter, and it will show the login prompt. 
-
-<span style="color: brown;">
-Alternatives to serial port if you can have wired (Ethernet) connection to a router or a laptop having an Ethernet interface:
-    - SSH - MobaXterm on Windows or [Muon SSH](https://github.com/devlinx9/muon-ssh) / bash terminal in Linux.
-    - Terminal within Jupyter Lab at <your_ip_address\>:9090/lab - password to enter the web interface itself is _xilinx_.
-The above have the advantage of not needing USB drive to copy programs/bitstream over and provides a generally smoother experience than serial.
-In case of a connection directly to laptop, you will need to do either of the below:
-    - (Preferred) Share your laptop internet connection via Ethernet (ChatGPT will tell you how). You will also need to figure out the IP address of the board, which can be done from the router status page or by accessing the Kria Linux commandline, and running `hostname -I` or `ip addr show`. It can also be found from your laptop - for example, if your laptop is running Linux, you can find via `arp -n`.
-    - Set static IP addresses on both the Kria board and the laptop.
-</span>
-
-Another alternative: If you have an HDMI/DisplayPort monitor, keyboard and mouse: You can connect and operate like a normal computer.
+Turn it on, and it will boot from SD Card to Ubuntu 22.04. There is a small chance it may not boot due to potential incompatibility between the board firmware and OS version. If this happens, perhaps it is a good idea to change the board to another one with a newer firmware. You can also update the firmware to the latest following the [instructions](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/3020685316/Kria+SOM+Boot+Firmware+Update), which requires a direct Ethernet connetion between the board and your laptop, and a static ip set for your laptop Ethernet interface.
 
 Every time before you power off, shut down the OS properly using `sudo shutdown -h now`. Wait until the LEDs next to the fan turns off before removing power.
 
-First, try running the example programs following the sessions below.
+## Interacting with Linux on Kria
+
+Serial port involved minimal connections to the board, but is not very powerful / flexible. Ethernet has the advantage of not needing USB drive to copy programs/bitstream over, ability to use `apt` and `pip`, and provides a generally much better flexibility and experience than serial. However, setting up Ethernet based communication involves a bit more work.
+
+Another alternative to Ethernet or Serial: If you have an HDMI/DisplayPort monitor, keyboard and mouse: You can connect and operate like a normal computer.
+
+Some notes on how to use Serial and Ethernet are given below.
+
+=== "Serial"
+
+    Use a terminal program and connect to the appropriate COM/tty/serial port as you did in assignment 1, baud rate of 115200. You will see the various boot messages.
+
+    If using Windows on your laptop/PC, RealTerm can be used for this purpose, but it is not great to be used like a conventional high-level terminal, though it is great for low-level debugging. RealTerm shows all characters by default, including non-printable ones, which makes it look messy. In the display tab, change it to ANSI to make it operate like a normal terminal. Even then, it is not great for the purpose. It is suggested to use another terminal program such as the Serial funcionality of [MobaXterm Home Editon](https://mobaxterm.mobatek.net/download.html).
+
+    Eventually, it will throw up a login prompt. Username is _ubuntu_ and password is the same as the one used for downloading the archive.
+
+    If you had not connected to the serial port before the boot is complete, press enter, and it will show the login prompt.
+
+=== "Ethernet"
+
+    <span style="color: brown;">
+    Use a wired (Ethernet) connection to a router or a laptop having an Ethernet interface / USB-Ethernet adapter.
+
+    To do anything via Ethernet, we need to have a mechanism whereby the Kria board Ethernet interface has a valid IP address. This is generally via DHCP, provided automatically by your router or laptop configured for internet connection sharing via Ethernet. The leasing of IP address is done only after the booting process is more or less complete. 
+
+    If connected to the router, there will be some status page that will list the IP address leases.
+
+    In case of a connection directly to laptop, you will need to share your laptop internet connection via Ethernet. This is easy to accomplish in a few clicks in Windows or Linux GUI; ChatGPT will tell you how. The functionality is slightly finicky in Windows though, sometimes requiring you to unshare and share again.
+
+    === "Linux"
+        ![](Linux_ConnectionSharing.png)
+    === "Windows"
+           
+
+    You can find the IP address from your laptop via `arp -a` from both Windows (Start Menu > cmd, or Start local terminal in MobaXterm) and Linux command line. In Windows, the IP address of the board will typically be 192.168.137.x, where x is between 2 and 254, corresponding to the Interface 192.168.137.1. If the interface looks like 169.x.x.x, it means internet connection sharing is not working. In Linux, the IP address given to the device is typically 10.42.0.x.
+
+    The IP address can be also be found from Kria Linux commandline via a Serial connection, and running `hostname -I` or `ip addr show` or `ip a` or `ifconfig` - for the last 3 commands, look for the inet value corresponding to eth0.
+
+    IP address can also be set statically depending on the use case. In this scenario, IP addresses of both the Kria board and the laptop Ethernet interface will need to be set statically. This provides stable connection settings - IP address will not change; but our ability to use anything that needs internet, such as `apt` and `pip` may be limited.
+
+    You can use an SSH client such as [MobaXterm](https://mobaxterm.mobatek.net/download.html) on Windows or [Muon SSH](https://github.com/devlinx9/muon-ssh) / bash terminal in Linux (`ssh -X ubuntu@<kriaboard_ip_address>`). You can even run GUI-based programs on Kria and have the display forwarded to your laptop (X forwarding).
+
+    Alternatively, you can use the terminal within Jupyter Lab at <kriaboard_ip_address\>:9090/lab via your browser- password to enter the web interface itself is _xilinx_.
+    </span>
 
 ## OpenCL on Kria
 
@@ -103,7 +125,8 @@ Do the same for the `.hwh` file.
 
 You can find the `<label>` corresponding to your USB drive by pressing tab and looking at autocomplete options after typing `cp /media/ubuntu/`.
 
-<span style="color: brown;">If `/media/ubuntu/<label>` does not exist, it means your drive was not automounted. In this case, you need to mount it manually. Follow the steps below.</span>
+<span style="color: brown;">
+If `/media/ubuntu/<label>` does not exist, it means your drive was not automounted. In this case, you need to mount it manually. Follow the steps below.</span>
 
 First, find out the partition number of your USB drive. This can be done via the command `lsblk`. You will see something like
 
@@ -120,6 +143,6 @@ Here, `sdb` is the block device name and `sdb1` is the partition number. If it i
 
 Before removing the USB drive, it is a very good idea to unmount it via `sudo umount /media/ubuntu/usbdrive`.
 
-If you made changes to your file directory on the Kria, in order to copy back to the USB drive, the drive should be mounted with write permissions for the user ubuntu. It is easy to figure out how to do this with a bit of Googling.
+If you made changes to your file directory on the Kria, in order to copy back to the USB drive, the drive should be mounted with write permissions for the user Ubuntu. It is easy to figure out how to do this with a bit of Googling.
 
 If you wish to make substantial changes to the .cpp file for OpenCL, you can also edit on the laptop and copy it using one of the methods mentioned above.
