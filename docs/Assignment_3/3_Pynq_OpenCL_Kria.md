@@ -115,34 +115,42 @@ To have a new .bit and .hwh, first have the .xsa ready. The .xsa can be unzipped
 
 If you have SSH /Jupyter lab access, you can copy these files via MobaXterm/Muon SSH/Jupyter lab UI conveniently.
 
-If not, you will need to do it via a USB drive. Copy it to a USB drive (not BitLocker-encrypted) from your laptop. Plug it into one of the USB ports.
+If not, you will need to do it via a USB drive, instructions given below. 
 
-You can then copy the file (say, mybitstream.bit) from `/media/ubuntu/<label>` to your working directory (say, `/home/ubuntu/PynqDMAExample`) via the command
+??? tip "Transferring files using a USB Drive"
 
-`cp /media/ubuntu/<label>/mybitstream.bit /home/ubuntu/PynqDMAExample`.
+    Copy the files to be transferred to a USB drive (not BitLocker-encrypted) from your laptop. Plug it into one of the USB ports.
 
-Do the same for the `.hwh` file.
+    You can then copy the file (say, mybitstream.bit) from `/media/ubuntu/<label>` to your working directory (say, `/home/ubuntu/PynqDMAExample`) via the command
 
-You can find the `<label>` corresponding to your USB drive by pressing tab and looking at autocomplete options after typing `cp /media/ubuntu/`.
+    `cp /media/ubuntu/<label>/mybitstream.bit /home/ubuntu/PynqDMAExample`.
 
-<span style="color: brown;">
-If `/media/ubuntu/<label>` does not exist, it means your drive was not automounted. In this case, you need to mount it manually. Follow the steps below.</span>
+    Do the same for the `.hwh` file.
 
-First, find out the partition number of your USB drive. This can be done via the command `lsblk`. You will see something like
+    You can find the `<label>` corresponding to your USB drive by pressing tab and looking at autocomplete options after typing `cp /media/ubuntu/`.
 
-`sdb`<br>
-`└─sdb1`
+    <span style="color: brown;">
+    If `/media/ubuntu/<label>` does not exist, it means your drive was not automounted. In this case, you need to mount it manually. Follow the steps below.</span>
 
-Here, `sdb` is the block device name and `sdb1` is the partition number. If it is different, make the changes are appropriate for the commands below. For now, we use a label/mountpoint `usbdrive`.
+    First, find out the partition number of your USB drive. This can be done via the command `lsblk`. You will see something like
 
-`sudo mkdir -p /media/ubuntu/usbdrive`  // to create a directory to mount the drive, if it does not exist.
+    `sdb`<br>
+    `└─sdb1`
 
-`sudo mount /dev/sdb1 /media/ubuntu/usbdrive/`  // mount it. Will be read-only for the user ubuntu. This has to done with each unmounting or reboot. An alternative is an appropriate entry in /etc/fstab.
+    Here, `sdb` is the block device name and `sdb1` is the partition number. If it is different, make the changes are appropriate for the commands below. For now, we use a label/mountpoint `usbdrive`.
 
-`cp /media/ubuntu/usbdrive/mybitstream.bit /home/ubuntu/PynqDMAExample`. // to copy the bitstream over to our working directory. Do the same for the `.hwh` file.
+    `sudo mkdir -p /media/ubuntu/usbdrive`  // to create a directory to mount the drive, if it does not exist.
 
-Before removing the USB drive, it is a very good idea to unmount it via `sudo umount /media/ubuntu/usbdrive`.
+    `sudo mount /dev/sdb1 /media/ubuntu/usbdrive/`  // mount it. Will be read-only for the user ubuntu. This has to done with each unmounting or reboot. An alternative is an appropriate entry in /etc/fstab.
 
-If you made changes to your file directory on the Kria, in order to copy back to the USB drive, the drive should be mounted with write permissions for the user Ubuntu. It is easy to figure out how to do this with a bit of Googling.
+    `cp /media/ubuntu/usbdrive/mybitstream.bit /home/ubuntu/PynqDMAExample`. // to copy the bitstream over to our working directory. 
+    
+    Do the same for the `.hwh` file.
+
+    Before removing the USB drive, it is a very good idea to unmount it via 
+    
+    `sudo umount /media/ubuntu/usbdrive`.
+
+    If you made changes to your file directory on the Kria, in order to copy back to the USB drive, the drive should be mounted with write permissions for the user Ubuntu. It is easy to figure out how to do this with a bit of Googling.
 
 If you wish to make substantial changes to the .cpp file for OpenCL, you can also edit on the laptop and copy it using one of the methods mentioned above.
