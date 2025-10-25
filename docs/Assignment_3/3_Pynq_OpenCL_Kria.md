@@ -61,12 +61,12 @@ Some notes on how to use Serial and Ethernet are given below.
 
     If connected to the router, there will be some status page that will list the IP address leases.
 
-    In case of a connection directly to laptop, you will need to share your laptop internet connection via Ethernet. This is easy to accomplish in a few clicks in Windows or Linux GUI; ChatGPT will tell you how. The functionality is slightly finicky in Windows though, sometimes requiring you to unshare and share again.
+    In case of a connection directly to laptop, you will need to share your laptop internet connection via Ethernet. This is easy to accomplish in a few clicks in Windows or Linux GUI; ChatGPT will tell you how - rough idea illustrated in the screenshots below, but there could be differences depending on your specific laptop and OS version. The functionality is slightly finicky in Windows though, sometimes requiring you to unshare and share again.
 
     === "Linux"
         ![](Linux_ConnectionSharing.png)
     === "Windows"
-           
+        ![](Windows_CnnectionSharing.png)
 
     You can find the IP address from your laptop via `arp -a` from both Windows (Start Menu > cmd, or Start local terminal in MobaXterm) and Linux command line. In Windows, the IP address of the board will typically be 192.168.137.x, where x is between 2 and 254, corresponding to the Interface 192.168.137.1. If the interface looks like 169.x.x.x, it means internet connection sharing is not working. In Linux, the IP address given to the device is typically 10.42.0.x.
 
