@@ -59,7 +59,7 @@ Some notes on how to use Serial and Ethernet are given below.
 
     To do anything via Ethernet, we need to have a mechanism whereby the Kria board Ethernet interface has a valid IP address. This is generally via DHCP, provided automatically by your router or laptop configured for internet connection sharing via Ethernet. The leasing of IP address is done only after the booting process is more or less complete. 
 
-    If connected to the router, there will be some status page that will list the IP address leases.
+    If connected to the router, there will be some status info in the router setup portal (very router dependent) that will list the IP address leases.
 
     In case of a connection directly to laptop, you will need to share your laptop internet connection via Ethernet. This is easy to accomplish in a few clicks in Windows or Linux GUI; ChatGPT will tell you how - rough idea illustrated in the screenshots below, but there could be differences depending on your specific laptop and OS version. The functionality is slightly finicky in Windows though, sometimes requiring you to unshare and share again.
 
