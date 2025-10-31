@@ -26,11 +26,13 @@ It is the [official Kria Ubuntu 22.04 image](https://ubuntu.com/download/amd) mo
 Some familiarity with Linux command line is handy from now on. Some useful commands are
 `ls`, `pwd`, `clear`, `nano` (command line text editor), `cp`, `mv`, `rm`, `cat`, `mkdir`, `rmdir`. Read up more about these. Pressing tab will help with autocomplete and that can be very handing when operating from command line.
 
-Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader or the provided card reader. The SD card should be at least 16 GB capacity. Do not just copy over; use an image writer application such as [Raspberry Pi Imager](https://www.raspberrypi.com/software/) (for CHOOSE OS, select the last option, i.e, 'use custom'; ignore the CHOOSE DEVICE option) or [Win32 Disk Imager](https://win32diskimager.org/) or [balena Etcher](https://etcher.balena.io/) or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right-click on the .img file in file explorer). The contents of the SD card will entirely be erased - make sure you choose the correct device/drive!.
+Use the .img image and flash it to an SD card after plugging the SD card into your laptop’s card reader or the provided card reader. The SD card should be at least 16 GB capacity. Note that 16 GB U1 cards do not work, which do not work with the upstream image either, and seem to have problems being detected by the board at a hardware level. 
 
-Insert the SD card into the micro SD card slot with the printed side facing up.
+Do not simply copy the .img over to the SD card; use an image writer application such as [Raspberry Pi Imager](https://www.raspberrypi.com/software/) (for CHOOSE OS, select the last option, i.e, 'use custom'; ignore the CHOOSE DEVICE option) or [Win32 Disk Imager](https://win32diskimager.org/) or [balena Etcher](https://etcher.balena.io/) or the ones bundled with Linux distributions (e.g., Disk Image Writer in Ubuntu - just right-click on the .img file in file explorer). The contents of the SD card will entirely be erased - make sure you choose the correct device/drive!.
 
-Turn it on, and it will boot from SD Card to Ubuntu 22.04. There is a small chance it may not boot due to potential incompatibility between the board firmware and OS version. If this happens, perhaps it is a good idea to change the board to another one with a newer firmware. You can also update the firmware to the latest following the [instructions](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/3020685316/Kria+SOM+Boot+Firmware+Update), which requires a direct Ethernet connetion between the board and your laptop, and a static ip set for your laptop Ethernet interface.
+Insert the SD card into the micro SD card slot with the printed side facing up while the board is off. Turn the board on, and it will boot from SD Card to Ubuntu 22.04.
+
+There is a small chance it may not boot due to potential incompatibility between the board firmware and OS version. If this happens, you should update the firmware to the latest following the [instructions](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/3020685316/Kria+SOM+Boot+Firmware+Update) - scroll towards the end of this page for updating firmware using the _Boot Image Recovery Tool_. This requires a direct Ethernet connection between the board and your laptop, and a static IP set for your laptop Ethernet interface.
 
 Every time before you power off, shut down the OS properly using `sudo shutdown -h now`. Wait until the LEDs next to the fan turns off before removing power.
 
@@ -153,4 +155,4 @@ If not, you will need to do it via a USB drive, instructions given below.
 
     If you made changes to your file directory on the Kria, in order to copy back to the USB drive, the drive should be mounted with write permissions for the user Ubuntu. It is easy to figure out how to do this with a bit of Googling.
 
-If you wish to make substantial changes to the .cpp file for OpenCL, you can also edit on the laptop and copy it using one of the methods mentioned above.
+If you wish to make substantial changes to the .cpp file for OpenCL or .py file for Pynq, you can also edit on the laptop and copy it using one of the methods mentioned above.
