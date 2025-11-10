@@ -115,6 +115,8 @@ Pynq requires the .hwh file with the same name as the .bit file, and in the same
 
 To have a new .bit and .hwh, first have the .xsa ready. The .xsa can be unzipped using any tool that can deal with .zip (rename it to .zip if necessary). You will then find the .bit and the .hwh (<span style="color: brown;">The one we need is the top level .hwh, usually named design_1.hwh; not those named design_1_axi_smc_*.hwh</span>) file. Rename the .hwh file to have the same as the .bit file, except for the extension.
 
+<span style="color: brown;">Update: Version 3.x of Pynq allows the unextracted .xsa file to be used directly</span>
+
 If you have SSH /Jupyter lab access, you can copy these files via MobaXterm/Muon SSH/Jupyter lab UI conveniently.
 
 If not, you will need to do it via a USB drive, instructions given below. 
