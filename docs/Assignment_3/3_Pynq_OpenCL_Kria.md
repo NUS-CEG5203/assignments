@@ -11,11 +11,6 @@ AMD/Xilinx *does not* provide a [ready-to-use image for Kria board](https://www.
 
 A zipped SD card image is provided [here - version 16_10_2025](https://www.dropbox.com/scl/fi/th7kynsmgxojzxmkh0fav/Ubuntu_Pynq_Kria_CEG5203_16_10_2025.img.zip?rlkey=q3ioj6el6vzrxj9gzw1d70p9x&st=pr2fa0ml&dl=0). The download password is mentioned in the Canvas announcements. Download and unzip the image (.img).
 
-The following changes were made to the image: 
-
-* Version 12_10_2025 : OpenCV downgraded to 4.10.0.84.
-* Version 16_10_2025 : Size of image shrunk to less than 14 GB, which should fit into all 16 GB SD cards.
-
 It is the [official Kria Ubuntu 22.04 image](https://ubuntu.com/download/amd) modified with the following:
 
 * [Pynq](https://github.com/Xilinx/Kria-PYNQ) installed. It does not work out of the box and requires numpy to be downgraded to 1.26.4. 
