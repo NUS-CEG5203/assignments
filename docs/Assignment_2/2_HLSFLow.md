@@ -60,7 +60,7 @@ You can see all the settings under myip_v1_0_HLS>Settings > hls_config.cfg.
 
 Under FLOW, Run C SIMULATION. This tests your program as standard software - an executable is created and run.
 
-<span style="color: brown;">If running Ubuntu and C simulation fails, do `sudo apt install build-essential` to install gcc and other tools that Vitis HLS depends on, but aren't installed by the installLibs.sh script (!).</span>
+If running Ubuntu and C simulation fails, do `sudo apt install build-essential` to install gcc and other tools that Vitis HLS depends on, but aren't installed by the installLibs.sh script (!).
 
 ![image.png](HLSFLow/C_Sim_Run.png)
 

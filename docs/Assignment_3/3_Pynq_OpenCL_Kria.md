@@ -7,11 +7,11 @@
 
 For this part, we will boot Ubuntu Linux on Kria board. 
 
-<span style="color: brown;"> AMD/Xilinx *does not* provide a [ready-to-use image for Kria board](https://www.pynq.io/boards.html) yet.</span>
+AMD/Xilinx *does not* provide a [ready-to-use image for Kria board](https://www.pynq.io/boards.html) yet.
 
 A zipped SD card image is provided [here - version 16_10_2025](https://www.dropbox.com/scl/fi/th7kynsmgxojzxmkh0fav/Ubuntu_Pynq_Kria_CEG5203_16_10_2025.img.zip?rlkey=q3ioj6el6vzrxj9gzw1d70p9x&st=pr2fa0ml&dl=0). The download password is mentioned in the Canvas announcements. Download and unzip the image (.img).
 
-<span style="color: brown;"> The following changes were made to the image: </span>
+The following changes were made to the image: 
 
 * Version 12_10_2025 : OpenCV downgraded to 4.10.0.84.
 * Version 16_10_2025 : Size of image shrunk to less than 14 GB, which should fit into all 16 GB SD cards.
@@ -19,7 +19,7 @@ A zipped SD card image is provided [here - version 16_10_2025](https://www.dropb
 It is the [official Kria Ubuntu 22.04 image](https://ubuntu.com/download/amd) modified with the following:
 
 * [Pynq](https://github.com/Xilinx/Kria-PYNQ) installed. It does not work out of the box and requires numpy to be downgraded to 1.26.4. 
-<span style="color: brown;">OpenCV should be downgraded to 4.10.0.84 for it to work with this version of numpy (not sure if it breaks any other package).</span>
+OpenCV should be downgraded to 4.10.0.84 for it to work with this version of numpy (not sure if it breaks any other package).
 * PoCL installed.
 * Example programmes for [OpenCL and Pynq](https://github.com/NUS-CEG5203/assignments/tree/main/docs/Assignment_3/code_templates) loaded.
 
@@ -56,7 +56,7 @@ Some notes on how to use Serial and Ethernet are given below.
 
 === "Ethernet"
 
-    <span style="color: brown;">
+    
     Use a wired (Ethernet) connection to a router or a laptop having an Ethernet interface / USB-Ethernet adapter.
 
     To do anything via Ethernet, we need to have a mechanism whereby the Kria board Ethernet interface has a valid IP address. This is generally via DHCP, provided automatically by your router or laptop configured for internet connection sharing via Ethernet. The leasing of IP address is done only after the booting process is more or less complete. 
@@ -79,7 +79,7 @@ Some notes on how to use Serial and Ethernet are given below.
     You can use an SSH client such as [MobaXterm](https://mobaxterm.mobatek.net/download.html) on Windows or [Muon SSH](https://github.com/devlinx9/muon-ssh) / bash terminal in Linux (`ssh -X ubuntu@<kriaboard_ip_address>`). You can even run GUI-based programs on Kria and have the display forwarded to your laptop (X forwarding).
 
     Alternatively, you can use the terminal within Jupyter Lab at <kriaboard_ip_address\>:9090/lab via your browser- password to enter the web interface itself is _xilinx_.
-    </span>
+    
 
 ## OpenCL on Kria
 
@@ -113,9 +113,9 @@ Pynq requires the .hwh file with the same name as the .bit file, and in the same
 
 `python3 PynqDMAExample.py` // run it
 
-To have a new .bit and .hwh, first have the .xsa ready. The .xsa can be unzipped using any tool that can deal with .zip (rename it to .zip if necessary). You will then find the .bit and the .hwh (<span style="color: brown;">The one we need is the top level .hwh, usually named design_1.hwh; not those named design_1_axi_smc_*.hwh</span>) file. Rename the .hwh file to have the same as the .bit file, except for the extension.
+To have a new .bit and .hwh, first have the .xsa ready. The .xsa can be unzipped using any tool that can deal with .zip (rename it to .zip if necessary). You will then find the .bit and the .hwh (The one we need is the top level .hwh, usually named design_1.hwh; not those named design_1_axi_smc_*.hwh) file. Rename the .hwh file to have the same as the .bit file, except for the extension.
 
-<span style="color: brown;">Update: Version 3.x of Pynq allows the unextracted .xsa file to be used directly</span>
+Update: Version 3.x of Pynq allows the unextracted .xsa file to be used directly
 
 If you have SSH /Jupyter lab access, you can copy these files via MobaXterm/Muon SSH/Jupyter lab UI conveniently.
 
@@ -133,8 +133,8 @@ If not, you will need to do it via a USB drive, instructions given below.
 
     You can find the `<label>` corresponding to your USB drive by pressing tab and looking at autocomplete options after typing `cp /media/ubuntu/`.
 
-    <span style="color: brown;">
-    If `/media/ubuntu/<label>` does not exist, it means your drive was not automounted. In this case, you need to mount it manually. Follow the steps below.</span>
+    
+    If `/media/ubuntu/<label>` does not exist, it means your drive was not automounted. In this case, you need to mount it manually. Follow the steps below.
 
     First, find out the partition number of your USB drive. This can be done via the command `lsblk`. You will see something like
 

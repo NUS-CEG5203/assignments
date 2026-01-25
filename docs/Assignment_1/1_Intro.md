@@ -36,8 +36,8 @@ The received result should be **captured into a file** via RealTerm. The name of
 
 Further, you should integrate an **AXI Timer** into your block design, and modify your software C code to report
 
-* the time taken for sending all the <span style="color: brown;">input</span> data <span style="color: brown;">matrices **A** and **B**</span> through the AXI Stream FIFO, and
-* the time taken for matrix multiplication <span style="color: brown;">(**A**\***B**/**256**)</span>.
+* the time taken for sending all the data matrices **A** and **B** through the AXI Stream FIFO, and
+* the time taken for matrix multiplication (**A**\***B**/**256**).
 
 The relative time required for the above two has to be reported through **profiling** as well.
 Some hints on how this can be done is given on the [Performance analysis](5_Performance_Analysis.md) page.
