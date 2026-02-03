@@ -13,7 +13,7 @@ This manual contains step-by-step instructions on how to create a hardware platf
 
 [Serial Console - RealTerm](4_Serial_Console.md) - This page describes how to use RealTerm, the recommended console program (you are free to use other serial terminal programs or even have your own program for the purpose, e.g., a custom Python code using PySerial library) to send and receive information to the program running on the Cortex A53 processor through UART.
 
-[Performance analysis](5_Performance_Analysis.md) - This page describes some general approaches to performance analysis, as well as the specific approach followed in the assignment, which is using an AXI Timer peripheral as well as using TCF-profiler.
+[Performance analysis](5_Performance_Analysis.md) - This page describes some general approaches to performance analysis, as well as the specific approach followed in the assignment, which is using an AXI Timer peripheral as well as via TCF-profiler.
 
 ## Assignment 1
 
