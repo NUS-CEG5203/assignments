@@ -34,7 +34,7 @@ Below are the steps to be followed to install **Xilinx Vitis 2025.1**. The inst
 
 * Artix-7 should be selected if you plan to play with other cheaper FPGAs in the future; else, uncheck it.
 
-* If you plan to try Alveo on some cloud-based service (e.g., Nimbix cloud) in the future, select that too. It is unnecessary for CEG5203 and increases the install size substantially.
+* If you plan to try Alveo on some cloud-based service (e.g., Nimbix cloud) in the future, select that too. It is unnecessary for our course and increases the install size substantially.
 
 * Click Next and select a suitable directory, Next, and Install. If you are prompted to allow installation of some hardware, firewall warnings about opening certain ports, etc, simply click allow without changing the default options. This may also happen during the first run of certain tools after installation. Make sure you allow or you will have a tough time fixing it later.
 
