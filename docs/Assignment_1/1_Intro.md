@@ -55,7 +55,7 @@ Upload the (only those files you have created/modified, not the entire project f
 * input/output test files
 * a text file that mentions the time taken in cycles or milliseconds (you should be able to convert between the two easily anyway) - this info can be copy-pasted from the realterm console to a text file
 * a screenshot of the profiling output
-to Canvas by 11:59 PM, **15 Sep 2025**.
+to Canvas by 11:59 PM, **15 Sep 2026**.
 The deadline is slightly negotiable for part-time students. You will also be required to do a demonstration (based on what you submitted at the point of the assignment deadline, not the version you may have improved after the deadline) to a teaching assistant sometime in the future - details to be announced.
 
 It should be as a single .zip archive, with the filename <Team number\>\_<Team member 1 Name\>\_<Team member 2 Name\>\_1.zip
