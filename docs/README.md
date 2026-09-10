@@ -37,6 +37,16 @@ A late demo is allowed (with no penalty) only if you can produce documented evi
 
 Kindly *DO NOT send emails regarding labs* wherever possible. See below on how to get help. Only if the matter is personal/administrative, please contact the lecturer via Canvas Inbox (not emails).
 
+Fair Use of LLMs and Open Source Code
+Use of AI/LLMs, agents, or other online code is permitted. However, you should
+
+Understand the code in detail and be able to explain it. Do not do cognitive offloading.
+Not infringe anyone's copyright, i.e., it should be code released under an open-source/permissive license.
+Demarcate such code clearly, and give proper attribution to the source/LLM, along with the prompts used. Using AI-generated code without attribution is considered plagiarism. You should also respond to a survey on Canvas which will open closer to the end of the course.
+Discussions are encouraged, but 'we had discussed' is not a valid excuse if your codes turn out to be uncomfortably similar to that of another group (except when you use online code with attribution as mentioned above).
+
+Though there will be intra-team differentiation in marks according to the contribution levels, a team will be collectively responsible for plagiarized code. Your teammates might be better off with no contribution at all from you than to receive plagiarized code.
+
 ### How to get help
 
 If you have any questions regarding the content of any of the assignments, please follow these steps, *in this order*, to answer them.  

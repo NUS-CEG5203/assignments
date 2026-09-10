@@ -1,7 +1,10 @@
 # High Level Synthesis
 
+!!! danger "Work in Progress"
+<!-- 
 !!! success "Final"
     This assignment description is now complete. There could still be minor updates, which will be <span style="color: brown;">highlighted</span>. 
+-->
 
 !!! warning "Follow the Spirit"
     Some screenshots may be taken on other versions of Vivado/Vitis or for other configurations. The instructions could also vary slightly depending on the exact design/configuration you follow - such as whether you have separate or combined designs with multiple coprocessors / interfacing method (DMA/FIFO). The spirit of the instructions remain the same. Understand the significance of each step rather than following it mechanically.
@@ -95,9 +98,9 @@ To summarise, we have 3 scenarios. We can have either a single project combining
 * A text file containing the information printed on the serial console in each case (or combined).
 * Screenshots of the TCF profiler tab showing the comparisons in each case (or combined).
 
-to the Canvas by 11:59 PM, 4 Oct 2025. The exact same files should be used for evaluation.
+to the Canvas by 11:59 PM, 29 Sep 2026. The exact same files should be used for evaluation.
 
-It should be as a .zip archive, with the filename  <Team number\>\_<Team member 1 Name\>\_<Team member 2 Name\>\_Asst2.zip.
+It should be as a single .zip archive, with the filename <Team member 1 Name\>\_<Team member 2 Name\>\_2.zip. One submission per team is sufficient. It will show as not submitted for the other person, but that is ok. If you are doing solo, do not include \_<Team member 2 Name\> in the filename.
 
 Please DO NOT upload the whole project!
 
