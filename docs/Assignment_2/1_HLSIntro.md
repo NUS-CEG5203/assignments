@@ -95,7 +95,7 @@ To summarise, we have 3 scenarios. We can have either a single project combining
 * A text file containing the information printed on the serial console in each case (or combined).
 * Screenshots of the TCF profiler tab showing the comparisons in each case (or combined).
 
-to the Canvas by 11:59 PM, 02 Oct 2026. The exact same files should be used for evaluation.
+to the Canvas by 11:59 PM, 05 Oct 2026. The exact same files should be used for evaluation.
 
 It should be as a single .zip archive, with the filename <Team member 1 Name\>\_<Team member 2 Name\>\_2.zip. One submission per team is sufficient. It will show as not submitted for the other person, but that is ok. If you are doing solo, do not include \_<Team member 2 Name\> in the filename.
 
